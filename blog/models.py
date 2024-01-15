@@ -9,9 +9,11 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_post")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="blog_posts")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    excerpt = models.TextField(blank=True)
     # choices=STATUS in the following line facilitates the use of 
     # 0 or 1 to denote Draft or Published.  these Choices are 
     # defined in the constant variable STATUS, above
