@@ -133,3 +133,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# This is a list of the trusted origins for requests that are allowed
+# to add blog post content from the admin dashboard. 
+# gitpod.io is used for local development
+# heroku.com is used for production deployment 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com"
+]
