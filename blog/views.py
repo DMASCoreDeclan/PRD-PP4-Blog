@@ -65,7 +65,9 @@ def comment_edit(request, slug, comment_id):
 
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
-            comment.post = postcomment.approved = Falsecomment.save()
+            comment.post = post
+            comment.approved = False
+            comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment updated!')
         else:
             messages.add_message(request,message.ERROR, 'Error updating comment!')

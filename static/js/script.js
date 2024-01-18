@@ -1,1 +1,0 @@
-console.log("Mary had a little lamb")
