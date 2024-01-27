@@ -11,7 +11,7 @@
 
 <head>
     <title>BlogStar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -67,14 +67,20 @@
                         </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    <div>adventures of a software developer</div>
+                <div class="navbar-text text-muted">
+                    <p>
+                        adventures of a software developer
+                    </p>
                     {% if user.is_authenticated %}
-                    <div>Welcome back {{ user }}, you are logged in.</div>
+                    <p>
+                        Welcome back {{ user }}, you are logged in.
+                    </p>
                     {% else %}                    
-                    <div>You are not logged in. </div>
+                    <p>
+                        You are not logged in. 
+                    </p>
                     {% endif %}
-                </span>
+                </div>
             </div>
         </div>
     </nav>
