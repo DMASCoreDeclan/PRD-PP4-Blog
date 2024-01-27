@@ -107,9 +107,18 @@ WSGI_APPLICATION = 'blogstar.wsgi.application'
 # }
 
 DATABASES = {
-    'default':
-    dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+# This is a list of the trusted origins for requests that are allowed
+# to add blog post content from the admin dashboard. 
+# gitpod.io is used for local development
+# heroku.com is used for production deployment 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeanyapp.com",
+    "https://*.gitpod.io",
+    "https://*.herokuapp.com",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -148,7 +157,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # '/static/' has been used instead of 'static/' as I downgraded django from 4.2 to 3.2
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -157,11 +166,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# This is a list of the trusted origins for requests that are allowed
-# to add blog post content from the admin dashboard. 
-# gitpod.io is used for local development
-# heroku.com is used for production deployment 
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.gitpod.io",
-    "https://*.herokuapp.com"
-]
