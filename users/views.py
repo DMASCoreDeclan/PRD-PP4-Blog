@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from .forms import UserRegisterForm # custom form that adds fields to the register.html form
+
+# Add custom form: UserRegisterForm so it can be used here 
 
 # Create your views here.
 '''
@@ -16,14 +18,14 @@ at the top of the screen
 '''
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account successfully created for {username}, welcome to blog|star')
             return redirect('home')
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
 
     return render(
         request, 
