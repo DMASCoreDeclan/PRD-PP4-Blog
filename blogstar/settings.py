@@ -39,6 +39,12 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
+    # 'users',
+    'blog.apps.BlogConfig',  
+    # 'blog',
+    'about.apps.AboutConfig',
+    # 'about',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,8 +60,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
-    'blog',
-    'about',
+    
 ]
 
 SITE_ID = 1
