@@ -2,8 +2,9 @@
 
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
+{% url 'register' as users_url %}
 {% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
+<!-- {% url 'account_signup' as signup_url %} -->
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
@@ -57,10 +58,19 @@
                             href="{% url 'account_logout' %}">Logout</a>
                         </li>
                     {% else %}
+                        <!-- Original Code3 from CI
+                            This original code is from the CI Blog Walkthrough.  I'm moveing this functionality to a Custom App: USERS
+                            I will use the custom app to create a Profile page for the user so that they can upload their profile picture
+                            and have the ability to change certain details like Profile Picture, Name and Password
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
                                 href="{% url 'account_signup' %}">Register</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == users_url %}active{%endif%}" aria-current="page" 
+                            href="{% url 'register' %}">Register</a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" 
                             href="{% url 'account_login' %}">Login</a>
