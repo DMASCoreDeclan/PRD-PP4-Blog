@@ -1,9 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 # Create your views here.
+'''
+inspired by Corey Schafer:
+https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6
+This VIEW is for /register.
+It checks to see if its a POST request and then applies validation.
+if the validation is not correct, the view is returned to the user with the
+information that does not need to be changed and removes the information that
+does need to be changed.
+Successful registration returns you to the home page with a message.SUCCESS displayed 
+at the top of the screen
+'''
 def register(request):
-    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account successfully created for {username}, welcome to blog|star')
+            return redirect('home')
+    else:
+        form = UserCreationForm()
 
     return render(
         request, 
