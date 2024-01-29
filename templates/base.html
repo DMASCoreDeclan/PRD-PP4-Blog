@@ -53,10 +53,16 @@
                         href="{% url 'about' %}">About</a>
                     </li>
                     {% if user.is_authenticated %}
+                        <!-- Add Profile link for users to change their details -->
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == profile_url %}active{% endif %}" aria-current="page" 
+                            href="{% url 'profile' %}">Profile</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" 
                             href="{% url 'account_logout' %}">Logout</a>
                         </li>
+                        
                     {% else %}
                         <!-- Original Code3 from CI
                             This original code is from the CI Blog Walkthrough.  I'm moveing this functionality to a Custom App: USERS

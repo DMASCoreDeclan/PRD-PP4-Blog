@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required # ensures the profile view does not load unless you;re logged in
 from .forms import UserRegisterForm # custom form that adds fields to the register.html form
 
 # Add custom form: UserRegisterForm so it can be used here 
@@ -22,7 +23,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account successfully created for {username}, welcome to blog|star')
+            messages.success(request, f'Account successfully created for {username}, welcome to blog|star, please log in')
             return redirect('account_login')
     else:
         form = UserRegisterForm()
@@ -34,3 +35,15 @@ def register(request):
             'form': form
             }
             )
+
+
+'''
+The profile page is available only after:
+REGISTER - > LOGIN
+If the User is not authenticated, the @login_required presents login.html,
+and appends "?next=/register/profile/" to the end of the login url so that
+after successful login, the user is redirected to their profile
+'''
+@login_required     
+def profile(request):
+    return render(request, 'users/profile.html')
