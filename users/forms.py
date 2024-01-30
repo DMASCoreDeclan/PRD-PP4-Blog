@@ -19,4 +19,11 @@ class UserRegisterForm(UserCreationForm):
     # This telss the form which model it will interact with ie User
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2'] # These are the fields presented on the form for filling them out
+
+    def __init__(self, *args, **kwargs):
+        super(UserRegisterForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].required = False # first_name is no longer mandatory
+        self.fields['last_name'].required = False # last_name is no longer mandatory
+        # self.fields['first_name'].initial = 'first_name'
+        # self.fields['last_name'].initial = 'last_name'
