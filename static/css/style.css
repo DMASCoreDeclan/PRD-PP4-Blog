@@ -160,6 +160,14 @@ body {
     color: rgb(222, 146, 168);
 }
 
+/* resize profile_picture from users.models for profile.html */
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+
 /* Nu Html Checker Revisions */
 #about-profile-picture {
     width: 75%;
@@ -168,3 +176,4 @@ body {
 body {
     background-color: blue;
 }
+

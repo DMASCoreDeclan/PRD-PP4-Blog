@@ -48,12 +48,14 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+                <!-- added me-2, btn, btn-signup right to style with other buttons on the site -->
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-signup left me-2">&laquo; PREV </a></li>
             {% endif %}
 
 
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                <!-- added ms-2, btn, btn-signup right to style with other buttons on the site -->
+                <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-signup right ms-2"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
