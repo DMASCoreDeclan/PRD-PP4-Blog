@@ -16,11 +16,9 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     excerpt = models.TextField(blank=True)
-    '''
-    choices=STATUS in the following line facilitates the use of 
-    0 or 1 to denote Draft or Published.  these Choices are 
-    defined in the constant variable STATUS, above
-    '''
+    # choices=STATUS in the following line facilitates the use of 
+    # 0 or 1 to denote Draft or Published.  these Choices are 
+    # defined in the constant variable STATUS, above
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
