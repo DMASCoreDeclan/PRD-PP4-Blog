@@ -1,23 +1,32 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required # ensures the profile view does not load unless you;re logged in
-from .forms import UserRegisterForm # custom form that adds fields to the register.html form
 
-# Add custom form: UserRegisterForm so it can be used here 
+# ensures the profile view does not load unless you're logged in
+from django.contrib.auth.decorators import login_required 
+
+'''
+Add custom form: UserRegisterForm form for register.html
+Add custom form: UserUpdateForm form for register/profile.html
+Add custom form: ProfileUpdateForm form for register/profile.html
+'''
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+
+ 
 
 # Create your views here.
-'''
-inspired by Corey Schafer:
-https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6
-This VIEW is for /register.
-It checks to see if its a POST request and then applies validation.
-if the validation is not correct, the view is returned to the user with the
-information that does not need to be changed and removes the information that
-does need to be changed.
-Successful registration returns you to the home page with a message.SUCCESS displayed 
-at the top of the screen
-'''
+
 def register(request):
+    '''
+    inspired by Corey Schafer:
+    https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6
+    This VIEW is for /register.
+    It checks to see if its a POST request and then applies validation.
+    if the validation is not correct, the view is returned to the user with the
+    information that does not need to be changed and removes the information that
+    does need to be changed.
+    Successful registration returns you to the home page with a message.SUCCESS displayed 
+    at the top of the screen
+    '''
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -46,4 +55,37 @@ after successful login, the user is redirected to their profile
 '''
 @login_required     
 def profile(request):
-    return render(request, 'users/profile.html')
+    '''
+    gathers the form fields of User/ProfileUpdateForm(s)
+    and presents them in the return context for viewing within 
+    users/profile.html prepopulated with the known details
+    currently stored in admin/auth/user/<user_id>/ and
+    admin/users/profile/<user_id>/
+    '''
+    if request.method == 'POST':
+        u_form = UserUpdateForm(
+            request.POST, 
+            instance=request.user
+            )  
+        p_form = ProfileUpdateForm(
+            request.POST, 
+            request.FILES, 
+            instance=request.user.profile
+            )
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'{request.user.username}, your account was successfully updated')
+            return redirect('profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)  
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+    
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+
+    return render(request, 'users/profile.html', context)

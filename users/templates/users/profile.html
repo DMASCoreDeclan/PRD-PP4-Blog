@@ -3,34 +3,37 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Register" %}{% endblock head_title %}
+{% block head_title %}{% trans "Update Profile" %}{% endblock head_title %}
 
 {% block content %}
 <div class="container">
-
-
-	<div class="content-section">
+    <div class="content-section">
         <div class="media col-md-8 mt-3 offset-md-2">
             <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}">
             <div class="media-body col-md-8 mt-3 offset-md-2"">
-            <h2 class="account-heading">{{ user.username }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
-            <p class="text-secondary">Name: {{ user.first_name }} {{ user.last_name }}</p>
-            <p class="text-secondary">Last login: {{ user.last_login|date:"D d M Y" }} </p>
-            <p class="text-secondary">Joined: {{ user.date_joined|date:"D d M Y" }}</p>
-          </div>
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+                <p class="text-secondary">Name: {{ user.first_name }} {{ user.last_name }}</p>
+            </div>
         </div>
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="signup" id="signup_form" method="post" action="{% url 'register' %}">
-                    
-                {% csrf_token %}
-                <fieldset>
-                    <legend>Join Today</legend>
-                    {{ form | crispy }}
-                </fieldset>
-                <button class="btn btn-signup right" type="submit">{% trans "Register" %}</button>
-            </form>
+        <!-- Begin Change/Update existing values -->
+        <div>
+            <div>
+                <form class="signup" id="update_profile" enctype="multipart/form-data" method="POST" > 
+                    <!-- action="{% url 'register' %}" -->
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Profile Information</legend>
+                        {{ u_form | crispy }}
+                        {{ p_form | crispy }}
+                    </fieldset>
+                    <button class="btn btn-signup right" type="submit">{% trans "Update" %}</button>
+                </form>
+                <p class="text-secondary">Last login: {{ user.last_login|date:"D d M Y" }} </p>
+                <p class="text-secondary">Joined: {{ user.date_joined|date:"D d M Y" }}</p>
+            </div>
         </div>
+        <!-- End Change/Update existing values -->
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
