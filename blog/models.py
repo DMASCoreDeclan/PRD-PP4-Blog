@@ -20,6 +20,7 @@ class Post(models.Model):
     # 0 or 1 to denote Draft or Published.  these Choices are 
     # defined in the constant variable STATUS, above
     status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
 
     class Meta:
         ordering = ["-created_on"]
