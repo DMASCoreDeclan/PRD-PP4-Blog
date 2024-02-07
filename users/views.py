@@ -10,7 +10,7 @@ Add custom form: UserUpdateForm form for register/profile.html
 Add custom form: ProfileUpdateForm form for register/profile.html
 '''
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-
+from blog.models import Comment
  
 
 # Create your views here.
@@ -81,11 +81,30 @@ def profile(request):
     else:
         u_form = UserUpdateForm(instance=request.user)  
         p_form = ProfileUpdateForm(instance=request.user.profile)
+        user_comments = Comment.objects.filter(author=request.user)
     
 
     context = {
         'u_form': u_form,
         'p_form': p_form,
+        'user_comments': user_comments,
     }
 
     return render(request, 'users/profile.html', context)
+
+
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('register/profile/profile.html', args=[slug]))
