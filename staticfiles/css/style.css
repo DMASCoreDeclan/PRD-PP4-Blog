@@ -164,3 +164,7 @@ body {
 #about-profile-picture {
     width: 75%;
 }
+
+.span-like {
+    color: black;
+}
