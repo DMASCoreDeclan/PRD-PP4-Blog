@@ -181,3 +181,10 @@ body {
     color: black;
 }
 
+footer p a {
+    color: white;
+}
+
+footer p a:hover {
+    color: white;
+}
