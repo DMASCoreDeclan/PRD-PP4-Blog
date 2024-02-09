@@ -165,14 +165,29 @@ body {
     width: 75%;
 }
 
+/* post_detail.html change the text description to black */
 .span-like {
     color: black;
 }
 
-footer p a {
-    color: white;
-}
 
+/* base.html fa icons return them to white */
+footer p a,
 footer p a:hover {
     color: white;
 }
+
+/* post_detail.html DELETE and EDIT btn */
+div.row.mt-2.mb-2 button,
+div.row.mt-2.mb-2 a.btn.btn-edit {
+    width: auto;
+}
+
+/* profile.html for comments longer than the required display area */
+.profile-comment-display {
+    display: block;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

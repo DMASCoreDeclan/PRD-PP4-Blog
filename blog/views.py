@@ -31,8 +31,6 @@ def post_detail(request, slug):
     if post.likes.filter(id=request.user.id).exists():
         liked = True
     like_count = post.likes.count()
-    my_approved_comments_count = post.comments.filter(id=request.user.id).count()
-    my_unapproved_comments_count = post.comments.filter(approved=False, id=request.user.id).count()
     
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -55,8 +53,6 @@ def post_detail(request, slug):
             'commented': False,
             'like_count': like_count,
             'liked': liked,
-            'my_approved_comments_count': my_approved_comments_count,
-            'my_unapproved_comments_count': my_unapproved_comments_count,
             'comment_count': comment_count,
             'comment_form': comment_form,
         },
