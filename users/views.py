@@ -10,7 +10,7 @@ Add custom form: UserUpdateForm form for register/profile.html
 Add custom form: ProfileUpdateForm form for register/profile.html
 '''
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from blog.models import Comment
+from blog.models import Comment, Post
  
 
 # Create your views here.
@@ -82,12 +82,16 @@ def profile(request):
         u_form = UserUpdateForm(instance=request.user)  
         p_form = ProfileUpdateForm(instance=request.user.profile)
         user_comments = Comment.objects.filter(author=request.user)
+        #Locate Liked posts of the logged in user
+        user_liked_post = Post.objects.filter(likes__in=[request.user]) 
     
 
     context = {
         'u_form': u_form,
         'p_form': p_form,
         'user_comments': user_comments,
+        #display Liked posts of the logged in user
+        'user_liked_post': user_liked_post,
     }
 
     return render(request, 'users/profile.html', context)

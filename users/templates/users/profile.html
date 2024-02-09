@@ -36,12 +36,33 @@
                 <h6> {{ comment.body }} </h6>
                 <p>Approved: {{ comment.approved }} </p>
                 <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a>
-                <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-                <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+                <button class="btn btn-delete" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
+                <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-edit" comment_id="{{ comment.id }}">Edit</a>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Start Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
+    <div class="d-flex flex-wrap justify-content-center mt-2">
+        {% for post in user_liked_post %}
+            <div class="row">
+                <h6> {{ post.title }} </h6>
+                <div class="col-sm-2">                              
+                        {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><span class="span-like"> Unlike </span><i class="fas fa-heart"></i></button>
+                                
+                            </form>
+                        {% endif %}
+                    </div>
             </div>
         {% endfor %}
     </div>   
-    <!-- Delete confirmation modal -->
+        <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->   
+    
+        <!-- Delete confirmation modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
