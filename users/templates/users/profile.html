@@ -3,8 +3,6 @@
 {% load i18n %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% load crispy_forms_tags %}
-
 
 {% block head_title %}{% trans "Update Profile" %}{% endblock head_title %}
 
@@ -65,50 +63,26 @@
             </div> 
             <br><hr><br>
             <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->   
-            
-           
-            
-                <h4>Post that I commented on:</h4>
-                <div class="d-flex flex-wrap justify-content-center mt-2">
-                    {% for comment in user_comments %}
-                        <div class="row mt-2 mb-2">
-                            <p><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
-                            
-                                <p><strong>Approved:</strong> {{ comment.approved }} </p>
-                                <p><strong>Comment:</strong></p>
-                                <p class="profile-comment-display">{{ comment.body }}</p>
-                            <div>
-                                <button class="btn btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
-                                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
-                                <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
-                                </p>
-                            </div>
+            <h4>Post that I commented on:</h4>
+            <div class="d-flex flex-wrap justify-content-center mt-2">
+                {% for comment in user_comments %}
+                    <div class="row mt-2 mb-2">
+                        <p><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
+                        
+                            <p><strong>Approved:</strong> {{ comment.approved }} </p>
+                            <p><strong>Comment:</strong></p>
+                            <p class="profile-comment-display">{{ comment.body }}</p>
+                        <div>
+                            <button class="btn btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                            <!-- Change BUTTON to HREF to bring EDIT into its own page -->
+                            <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
+                            </p>
                         </div>
-                    {% endfor %}
-                </div>
-            
-                <h4>Unapproved Comments:</h4>
-                <div class="d-flex flex-wrap justify-content-center mt-2">
-                    {% for comment in user_comments %}
-                        <div class="row mt-2 mb-2">
-                            <p><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
-                            
-                                <p><strong>Approved:</strong> {{ comment.approved }} </p>
-                                <p><strong>Comment:</strong></p>
-                                <p class="profile-comment-display">{{ comment.body }}</p>
-                            <div>
-                                <button class="btn btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
-                                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
-                                <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
-                                </p>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-
     <!-- Delete confirmation modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
