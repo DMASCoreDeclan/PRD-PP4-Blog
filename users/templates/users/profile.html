@@ -45,7 +45,7 @@
                 <br>
             <h4>My liked posts:</h4>
             <!-- Start Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
-            <div class="d-flex flex-wrap justify-content-center mt-2">
+            <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
                 <div class="card-body">
                 {% for post in user_liked_post %}
                     <div class="row mt-2 mb-2">
@@ -65,7 +65,7 @@
             <br><hr><br>
             <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->   
             <h4>My comments:</h4>
-            <div class="d-flex flex-wrap justify-content-center mt-2">
+            <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
                 {% for comment in user_comments %}
                     <div class="row mt-2 mb-2">
                         <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %} class=" class="post-link">{{ comment.post.title }}</a></p>

@@ -207,3 +207,10 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+/* for the containers in profile.html to make sure they don't overflow */
+.profile-container {
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+ }
