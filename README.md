@@ -2,7 +2,7 @@
 
 
 
-<!-- ![Cover image](/readme/cover-img.png)
+
 
 ### Live site: https://flyux.carlmurray.design
 
@@ -66,71 +66,36 @@
 
 ### 👀 Overview
 
-- This Django web development project is a continuation of a UX Design project I completed during my Diploma in UX Design with the UX Design Institute which goes through the full UX process from user research all the way through to prototyping and handover.
-- The end result was a user-friendly flight booking flow which was informed by user research and prototyped to a medium fidelity in Figma.
-- Revisiting the project a year later, I am now using it as a foundation to build upon and bring it from Figma prototype, to a fully functioning Django-based full-stack web application, combining my passions for user-centric design and web development to build a holistic solution.
+- This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
+- I have appended several features to the original concept.
+- I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
+- Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
+- Users can also submit a Post of their own, making it more community driven
+- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
 
-**[See here for the full UX Design case study](https://carlmurray.design/p/cmurray/03678e7f)**
+- A visitor has the option to browse individual Posts or Register to become a User:
+- ![Visitor View](.ReadMe_Docs/images/image.png)
+- A registered user has the option to Comment and Like posts, sent to Admin for approval:
+- ![User View](.ReadMe_Docs/images/image-1.png)
+- Admin retians the option to Comment and Like posts and access the django **[Admin](https://blogstar-fa4e79f10910.herokuapp.com/admin/)** function
+- ![Admin View](.ReadMe_Docs/images/image-2.png)
 
 # 🔁 Process
 
-### ❓ Problem Statement:
-
-> Your client is a start-up airline. They’re looking to create an online experience that is fast, easy and intuitive: one that’s based on a deep understanding of their target users.
-
-### 🔎 Research
-
-<details>
-
-- Competitive benchmarking was carried out to better understand what current industry leaders are doing and to understand common conventions and user expectations from a flight booking flow.
-- Usability testing of existing flows were carried out with users on the Aer Lingus, Ryanair and EasyJet websites to observe user behaviour, mental models, positives and pain points.
-- This research data was used to inform my solution, which aimed to provide a simple, straight-forward, upsell-free and easy-to-use flight booking flow.
-
-**[See here for the full UX Design case study](https://carlmurray.design/p/cmurray/03678e7f)**
-
-</details>
-
-### 🎨 Design
-
-<details>
-
-- The design process began with sketching out low-fidelity wireframes to explore different layout options and to get a feel for the flow.
-- The wireframes were then translated into a [medium-fidelity prototype](https://www.figma.com/proto/1lcdpwiJdrfa5DN0flygbf/Project10?type=design&node-id=2-3&t=7HxbLkrQd03aCuJy-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A3&show-proto-sidebar=1&mode=design) in Figma.
-- Handover documentation was created to provide a detailed overview of the design and to provide guidance for the development process.
-- The design was informed by the research data and aimed to provide a simple, straight-forward, upsell-free and easy-to-use flight booking flow.
-- Branding was kept minimal and the design was kept clean and simple to allow for easy navigation and to avoid overwhelming the user with too much information.
-- The logo, typeface and colour scheme were chosen to reflect the brand's values of simplicity, speed and efficiency.
-
-![Colour palette](/readme/palette.png)
-
-**[See here for the full UX Design case study](https://carlmurray.design/p/cmurray/03678e7f)**
-
-</details>
-
-### 👨‍💻 Development
-
-<details>
-
 - The development process was carried out using an Agile methodology with a focus on iterative development and continuous improvement.
-- The project was managed using a GitHub Project board with user stories and tasks.
+- The project was managed using GitHub Project boards with user stories and tasks.  [GitHub Project](https://github.com/users/DMASCoreDeclan/projects/20/views/1)
 - User Stories were sized using T-shirt sizing (XS, S, M, L, XL) and prioritised based on the MoSCoW method (Must have, Should have, Could have, Won't have).
 
-#### 📈 [Link to the GitHub Project board](https://github.com/users/CarlMurray/projects/3/views/3)
+####  
 
-#### 👤 User Stories
-1. As a user, I want to search for flights based on the selected departure airport, destination airport, and date, so that I can view the available flight options.
-2. As a user, I want to see a list of available flights after performing a search, including relevant details such as flight number, departure time, arrival time, and price, so that I can choose a suitable flight.
-3. As a user, I want to checkout quickly and securely on the site, so that I can finalise my booking.
-4. As a user, I want to provide my personal information (e.g. name, email, phone number) during the booking process, so that I can receive information about the flight.
-5. As a user, I want to review the booking details before finalising the booking, so that I can ensure everything is correct.
-6. As a user, I want to confirm the booking and receive a confirmation message or email, so that I know my flight has been successfully booked.
-7. As an admin, I want to view and update the details of a specific flight booking, including passenger information and booking status, so that I can handle customer inquiries and make necessary changes.
-8. As an admin, I want to manage user accounts, including creating, editing, and disabling user profiles, so that I can maintain control over site access and user privileges.
-9. As an admin, I want to log in to an admin panel securely, so that I can access the site's administrative features.
-10. As an admin, I want to manage the list of flights, including adding, editing, and deleting flight details, so that I can update flight schedules and availability.
-11. As an admin, I want to manage the list of airports, including adding, editing, and deleting airport entries, so that I can ensure accurate and up-to-date information.
-12. As a user, I want to create an account so that I can keep track of and edit my existing bookings.
-13. As a user I want to explore blog posts to get travel inspiration for my next trip.
+####  User Stories [GitHub User board](https://github.com/users/DMASCoreDeclan/projects/20/views/10)
+
+<details>
+I divided the User Stories into 3 types
+
+- Developer Stories - Developer prerequistes in order for the django to run ie Heroku, ElephandSQL and Github
+- Site Owner Stories - The underlying features that the Site Owner wanted
+- User Stories - The User Experience of the site
 
 </details>
 
