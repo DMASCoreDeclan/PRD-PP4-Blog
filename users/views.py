@@ -84,14 +84,22 @@ def profile(request):
         user_comments = Comment.objects.filter(author=request.user)
         #Locate Liked posts of the logged in user
         user_liked_post = Post.objects.filter(likes__in=[request.user]) 
+        #Locate User Created Posts of the logged in user
+        user_create_post = Post.objects.filter(author__in=[request.user])
+        #Locate User approved comments of the logged in user
+        approved = Comment.objects.filter(approved=True)
+        #Locate User unapproved comments of the logged in user
+        unapproved = Comment.objects.filter(approved=False)
     
 
     context = {
         'u_form': u_form,
         'p_form': p_form,
         'user_comments': user_comments,
-        #display Liked posts of the logged in user
         'user_liked_post': user_liked_post,
+        'user_create_post': user_create_post,
+        'approved': approved,
+        'unapproved': unapproved,
     }
 
     return render(request, 'users/profile.html', context)

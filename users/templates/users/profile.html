@@ -43,46 +43,79 @@
         <div class="col-md-4">
             <div class="content-section">
                 <br>
-            <h4>My liked posts:</h4>
-            <!-- Start Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
-            <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
-                <div class="card-body">
-                {% for post in user_liked_post %}
-                    <div class="row mt-2 mb-2">
-                    <p class="profile-excerpt mb-0"><strong> Post title:</strong> {{ post.title }} </p>
-                        <div>                              
-                            {% if user.is_authenticated %}
-                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><span class="span-like"> Unlike </span><i class="fas fa-heart"></i></button>
-                                </form>
-                            {% endif %}
+                <h6>My liked posts:</h6>
+                <!-- Start Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
+                <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
+                    <div class="card-body">
+                    {% for post in user_liked_post %}
+                        <div class="row mt-2 mb-2">
+                        <p class="profile-excerpt mb-0"><strong>Post title:</strong> {{ post.title }} </p>
+                            <div>                              
+                                {% if user.is_authenticated %}
+                                    <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                        {% csrf_token %}
+                                        <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><span class="span-like"> Unlike </span><i class="fas fa-heart"></i></button>
+                                    </form>
+                                {% endif %}
+                            </div>
                         </div>
-                    </div>
+                        {% endfor %}
+                    </div>  
+                </div> 
+                <hr>
+                <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
+                <!-- Start Add a list of Posts that I previously created.  I can Delete or Edit my comments here -->   
+                <h6>My posts:</h6>
+                <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
+                    {% for userpost in user_create_post %}
+                        <div class="row mt-2 mb-2">
+                            <p class="profile-excerpt mb-0"><strong>Post:</strong></p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Add a list of Posts that I previously created.  I can Delete or Edit my comments here -->
+                <hr>
+                <!-- Start Add a list of Articles that I previously commented on.  I can Delete or Edit my comments here -->   
+                <h6>My unapproved comments:</h6>
+                <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
+                    {% for comment in user_comments %}
+                    {% if not comment.approved%}
+                        <div class="row mt-2 mb-2">
+                            <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
+                            <p class="mb-0"><strong>Comment:</strong></p>
+                            <p class="profile-excerpt mb-0">{{ comment.body }}</p>
+                            <div>
+                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
+                                <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-sm btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
+                                </p>
+                            </div>
+                        </div>
+                        {% endif %}
                     {% endfor %}
                 </div>  
-            </div> 
-            <br><hr><br>
-            <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->   
-            <h4>My comments:</h4>
-            <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
-                {% for comment in user_comments %}
-                    <div class="row mt-2 mb-2">
-                        <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %} class=" class="post-link">{{ comment.post.title }}</a></p>
-                        <p class="mb-0"><strong>Approved:</strong> {{ comment.approved }} </p>
-                        <p class="mb-0"><strong>Comment:</strong></p>
-                        <p class="profile-excerpt mb-0">{{ comment.body }}</p>
-                        <div>
-                            <button class="btn btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
-                            <!-- Change BUTTON to HREF to bring EDIT into its own page -->
-                            <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
-                            </p>
+                <hr>
+                <h6>My approved comments:</h6>
+                <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
+                    {% for comment in user_comments %}
+                    {% if comment.approved%}
+                        <div class="row mt-2 mb-2">
+                            <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
+                            <p class="mb-0"><strong>Comment:</strong></p>
+                            <p class="profile-excerpt mb-0">{{ comment.body }}</p>
+                            <div>
+                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
+                                <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn-sm btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <!-- End Add a list of Articles that I previously commented on.  I can Delete or Edit my comments here -->
             </div>
         </div>
-    </div>
     <!-- Delete confirmation modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
