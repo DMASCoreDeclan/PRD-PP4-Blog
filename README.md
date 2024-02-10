@@ -61,24 +61,38 @@
 - [👋 Credits](#-credits)
 
 
-# 📄 Project Background
+# Project Background
 
 
-### 👀 Overview
+### Overview
 
 - This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
 - I have appended several features to the original concept.
 - I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
 - Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
 - Users can also submit a Post of their own, making it more community driven
+- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
 - From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
 
-- A visitor has the option to browse individual Posts or Register to become a User:
-- ![Visitor View](.ReadMe_Docs/images/image.png)
-- A registered user has the option to Comment and Like posts, sent to Admin for approval:
-- ![User View](.ReadMe_Docs/images/image-1.png)
-- Admin retians the option to Comment and Like posts and access the django **[Admin](https://blogstar-fa4e79f10910.herokuapp.com/admin/)** function
-- ![Admin View](.ReadMe_Docs/images/image-2.png)
+### Wireframes
+
+<details>
+
+[Designed with Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/)
+
+Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
+
+
+
+
+
+</details>
+
+
+
+
+
+
 
 # 🔁 Process
 
@@ -546,31 +560,25 @@ This section outlines the various technologies used throughout the project and t
 
 </details>
 
-## 📚 Libraries, Frameworks and Packages
+## 📚 Python/Django Packages, Libraries, Frameworks and CDNs
 
 <details>
 
-- [Tailwind CSS](https://tailwindcss.com/) - used to style elements throughout the site.
-- [Flowbite](https://htmx.org/) - a Tailwind-based open-source library; used very sparingly for small number of minor components in the site (radio select, dropdown select)
-- [htmx](https://htmx.org/) - an open-source lightweight library used to fetch and load content dynamically via AJAX requests. Utilised specifically for fetching new `Flight` data and `Passenger`s edit form.
-- [Flatpickr](https://flatpickr.js.org/) - a JavaScript library which provides the date picker styles and functionality on the Homepage.
-- [Payform](https://github.com/jondavidjohn/payform) - a JavaScript library used for formatting the Payment Details form inputs.
-
-</details>
-
-## 🐍 Python/Django Packages
-
-<details>
-
-- [Gunicorn](https://pypi.org/project/gunicorn/) - provides HTTP server.
-- [psycopg2](https://pypi.org/project/psycopg2/) - provides PostgreSQL connection.
-- [Pillow](https://pypi.org/project/Pillow/) - used for image processing (Model ImageField).
-- [Whitenoise](https://pypi.org/project/whitenoise/) - used for serving static files.
-- [Coverage](https://pypi.org/project/coverage/) - used for testing and analysis.
-- [Django Markdown Field](https://pypi.org/project/django-markdownfield/) - adds a markdown-compatible text field to admin panel (for BlogPost model).
-- [Black](https://pypi.org/project/black/) - A PEP8 compliant code formatter.
-- [Django Debug Toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/) - used for debugging.
-- [Django Storages](https://django-storages.readthedocs.io/en/latest/) and [Boto3](https://pypi.org/project/boto3/) - used for storing static files and media files on AWS S3.
+- [cloudinary](https://pypi.org/project/django-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API. You can use Cloudinary for both media and static file
+- [crispy-bootstrap5](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API
+- [django-allauth](https://docs.allauth.org/en/latest/) - A fully integrated Django authentication app that allows for both local and social authentication, with flows that just work, beautifully!
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
+- [django-summernote](https://pypi.org/project/django-summernote/) - Summernote is a JavaScript library that helps you create WYSIWYG editors online.
+- [gunicorn](https://gunicorn.org/) - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX
+- [oauthlib](https://pypi.org/project/oauthlib/) - A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language
+- [PyJWT](https://pyjwt.readthedocs.io/) - Python library which allows you to encode and decode JSON Web Tokens (JWT)
+- [FavIcon](https://favicon.io/) - Quickly generate your favicon from text, image, or choose from hundreds of emoji
+- [Google Fonts](https://fonts.google.com/) - High-quality google fonts to use on your web site.
+- [Font Awesome](https://fontawesome.com/) - Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites
 
 </details>
 
@@ -578,13 +586,12 @@ This section outlines the various technologies used throughout the project and t
 
 <details>
 
-- [PostgreSQL](https://www.postgresql.org/) (via Digital Ocean) - used for database.
+- [PostgreSQL](https://www.postgresql.org/docs/12/) Current version provided by [Code Institute PostgresSQL](https://dbs.ci-dbs.net//)   (Originally on [ElephantSQL](https://www.elephantsql.com/) until v12 became unavailable.)  
 - [Heroku](https://www.heroku.com/) - used for hosting the application.
-- [AWS S3](https://aws.amazon.com/s3/) - used for storing static files and media files.
+- [Cloudinary](https://cloudinary.com/) - used for storing static files and media files.
 
 </details>
 
-</details>
 
 ---
 
@@ -818,44 +825,44 @@ This section outlines the various technologies used throughout the project and t
 
 #### 📦 Local Deployment  
 1. Clone the repository from GitHub by clicking the "Code" button and copying the URL.
-2. Open your preferred IDE and open a terminal session in the directory you want to clone the repository to.
-3. Type `git clone` followed by the URL you copied in step 1 and press enter.
-4. Install the required dependencies by typing `pip install -r requirements.txt` in the terminal.
-5. Note: The project is setup to use environment variables. You will need to set these up in your local environment. See [Environment Variables](#environment-variables) for more information.
-6. Connect your database of choice and run the migrations by typing `python manage.py migrate` in the terminal.
-7. Create a superuser by typing `python manage.py createsuperuser` in the terminal and following the prompts.
-8. Optional: Fixtures for Flight, Airport and Aircraft models are included in the project in the `fixtures` directory. To add pre-populated data to the database, run `python manage.py loaddata fixtures/[fixture_name].json`.
-9. Run the app by typing `python manage.py runserver` in the terminal and opening the URL in your browser.
+1. Open your preferred IDE and open a terminal session in the directory you want to clone the repository to.
+1. Type `git clone` followed by the URL you copied in step 1 and press enter.
+1. Install the required dependencies by typing `pip install -r requirements.txt` in the terminal.
+1. Note: The project is setup to use environment variables. You will need to set these up in your local environment. See [Sample Environment Variables](/env_sample.py) for more information.
+1. Please also Note: This project uses a cloud based Postgress (min v12) database, you may use whatever database you wish
+1. Connect your database of choice and run the migrations by typing `python3 manage.py migrate` in the terminal.
+1. **The SUPERUSER MUST be "Admin" otherwise the url for the Admin will not apppear when you log in as the superuser**
+1. Create a superuser by typing `python3 manage.py createsuperuser` in the terminal and follow the prompts.  
+1. Optional: Fixtures for posts are held in `fixtures` directory. To add pre-populated data to the database, run `python3 manage.py loaddata blog/fixtures/posts.json`.
+1. Run the app by typing `python3 manage.py runserver` in the terminal and opening the URL in your browser.
 
 #### 💜 Heroku Deployment
-1. Login to the Heroku dashboard and create a new app.
-2. Connect your GitHub repository to your Heroku app.
-3. In the Settings tab, ensure that the Python Buildpack is added.
-4. Set environment variables in the Config Vars section of the Settings tab.
-5. In the Deploy tab, enable automatic deploys from your GitHub repository.
-6. Click the "Deploy Branch" button to deploy the app.
-7. Once the app has been deployed, click the "Open App" button to view the app.
-8. If using S3, you will need to set up an S3 bucket and add the environment variables to your Heroku app (see tutorial [here](https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/) for reference.)
+1. Login to the [Heroku](https://dashboard.heroku.com/) dashboard and create a new app.
+1. Connect your GitHub repository to your Heroku app.
+1. In the Settings tab, ensure that the Python Buildpack is added.
+1. Set environment variables in the Config Vars section of the Settings tab.  
+![Heroku Config Vars](.ReadMe_Docs/images/HerokuConfigVars.png)
+1. In the Deploy tab, enable automatic deploys from your GitHub repository.
+1. Click the "Deploy Branch" button to deploy the app.
+1. Once the app has been deployed, click the "Open App" button to view the app.
+
+#### 💜 Cloudinary Deployment
+1. Login to [Cloudinary](https://cloudinary.com/)
+1. From the Cloudinary Dashboard, copy the CLOUDINARY_URL and place in the local env.py and Config Vars on Heroku.
 
 #### 📐 Environment Variables
 - For local deployment, you will need to create a `.env` file in the root directory of the project and set the environment variables in this file.
+- [Sample Environment Variables](/env_sample.py)
 - For Heroku deployment, you will need to set the environment variables through the Heroku CLI or through the Heroku dashboard under 'Config Vars'.
 - You need to define the following variables:
-  - If using a Postgres database:
+  - If using a Postgres database (must have v12 minimum, required gor gunicorn):
     - `DATABASE_URL` - the URL for your Postgres database.
-    - `NAME` - the name of your database.
-    - `USER` - the username for your database.
-    - `PASSWORD` - the password for your database.
-    - `HOST` - the host for your database.
-    - `PORT` - the port for your database.
   - Django settings:
     - `SECRET_KEY` - the secret key for your Django project.
     - `DEBUG` - set to `True` for development, `False` for production.
-  - If using S3:
-    - `USE_S3` - set to `True` to use S3, `False` to use local storage.
-    - `AWS_ACCESS_KEY_ID` - your AWS access key ID.
-    - `AWS_SECRET_ACCESS_KEY` - your AWS secret access key.
-    - `AWS_STORAGE_BUCKET_NAME` - the name of your AWS S3 bucket.
+  - If using Cloudinary:
+    - `CLOUDINARY_URL` - your Cloudinary access key ID.
+    
 
 </details>
   
@@ -869,10 +876,9 @@ This section outlines the various technologies used throughout the project and t
 
 <details>
 
-- [Unsplash](https://unsplash.com/) - used for sourcing Blog photographic images.
-- [ChatGPT](https://openai.com/chatgpt) - used for generating all Blog text content.
+
 - [Favicon.io](https://favicon.io/) - used to create favicon.
 - [Payform](https://github.com/jondavidjohn/payform) - used for Payment Details input formatting.
-- [Mockaroo](https://www.mockaroo.com/) - used for creating model data.
+- As always, Antonio my mentor
 
 </details> -->
