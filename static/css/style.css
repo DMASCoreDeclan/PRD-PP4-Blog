@@ -200,9 +200,9 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
 }
 
 /* profile.html for comments longer than the required display area */
-.profile-comment-display {
-    display: block;
-    width: 300px;
+.profile-excerpt {
+    /* display: block; */
+    width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

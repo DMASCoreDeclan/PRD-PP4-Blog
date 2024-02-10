@@ -42,13 +42,14 @@
         </div>
         <div class="col-md-4">
             <div class="content-section">
-            <h4>Post that I liked:</h4>
+                <br>
+            <h4>My liked posts:</h4>
             <!-- Start Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->
             <div class="d-flex flex-wrap justify-content-center mt-2">
                 <div class="card-body">
                 {% for post in user_liked_post %}
                     <div class="row mt-2 mb-2">
-                    <p><strong> Post title:</strong> {{ post.title }} </p>
+                    <p class="profile-excerpt mb-0"><strong> Post title:</strong> {{ post.title }} </p>
                         <div>                              
                             {% if user.is_authenticated %}
                                 <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
@@ -63,15 +64,14 @@
             </div> 
             <br><hr><br>
             <!-- End Add a list of Articles that I previously Liked.  If I unlike the comment, it unlikes and brings me to the detail of that #Post -->   
-            <h4>Post that I commented on:</h4>
+            <h4>My comments:</h4>
             <div class="d-flex flex-wrap justify-content-center mt-2">
                 {% for comment in user_comments %}
                     <div class="row mt-2 mb-2">
-                        <p><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %}" class="post-link">{{ comment.post.title }}</a></p>
-                        
-                            <p><strong>Approved:</strong> {{ comment.approved }} </p>
-                            <p><strong>Comment:</strong></p>
-                            <p class="profile-comment-display">{{ comment.body }}</p>
+                        <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' comment.post.slug %} class=" class="post-link">{{ comment.post.title }}</a></p>
+                        <p class="mb-0"><strong>Approved:</strong> {{ comment.approved }} </p>
+                        <p class="mb-0"><strong>Comment:</strong></p>
+                        <p class="profile-excerpt mb-0">{{ comment.body }}</p>
                         <div>
                             <button class="btn btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
                             <!-- Change BUTTON to HREF to bring EDIT into its own page -->
