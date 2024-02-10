@@ -3,7 +3,8 @@ from django.views import generic, View
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from django.template.defaultfilters import slugify
 
 
 # Create your views here.
@@ -23,7 +24,7 @@ def post_detail(request, slug):
     **Template**
     :template:'blog/post_detail.html'
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
@@ -43,6 +44,8 @@ def post_detail(request, slug):
                 request, messages.SUCCESS, 
                 'Your comment has been submitted and will be available to see by everyone, once it\'s approved by the Administrator'
             )
+            
+            return HttpResponseRedirect(reverse('post_detail', args=[slug])) # Added this line as the Comments were duplicating when f5 was pressed
     comment_form = CommentForm()
     return render(
         request, 
@@ -119,3 +122,26 @@ class PostLike(View):
         else:
             post.likes.add(request.user) 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+
+# Add Like functionality to Post that user likes
+class PostCreate(View):
+    def post(self, request, *arg, **kwargs):
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.slug = slugify(post.title)
+            post.save()
+            messages.add_message(request, messages.SUCCESS, 'Post created!')
+            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+    
+    def get(self, request, *arg, **kwargs):
+        post_form = PostForm()
+        return render(request,  'blog/post_create.html', 
+        {
+            'post_form': post_form,
+        },
+    )
+
