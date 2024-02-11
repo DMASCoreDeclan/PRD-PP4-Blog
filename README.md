@@ -7,7 +7,7 @@
 ### Live site: https://flyux.carlmurray.design
 
 # Table of Contents
-- [📄 Project Background](#-project-background)
+- [Project Background](#Project-Background)
     - [👀 Overview](#-overview)
 - [🔁 Process](#-process)
     - [❓ Problem Statement:](#-problem-statement)
@@ -63,8 +63,9 @@
 
 # Project Background
 
+<details>
 
-### Overview
+<summary>Overview</summary> 
 
 - This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
 - I have appended several features to the original concept.
@@ -73,6 +74,71 @@
 - Users can also submit a Post of their own, making it more community driven
 - I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
 - From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
+</details>
+
+
+<details>
+<summary>Agile Methodology</summary> 
+
+<details>
+<summary>Personas</summary> 
+
+- Developer - the person developing the product
+- Anonymous User - a user who is not logged in, there are no stories for this visitor
+- User - someone who has registered and logged in
+- Admin - the Site Owner
+
+</details>
+
+<details>
+<summary>Github</summary> 
+Github was used for Planning, Recording and Sharing of all aspects of the project:
+
+The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
+- [Code Repository](https://github.com/DMASCoreDeclan/PRD-PP4-Blog)
+- [Version Control](https://github.com/DMASCoreDeclan/PRD-PP4-Blog) was used for version control of the code.  Regular [commits](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/commits/main/) were created.  Where possible each commit was isolated to either a specific Issue but may have occassionally also included a minor change to some other part of the code
+- [Milestones](https://github.com/users/DMASCoreDeclan/projects/20/views/3)
+- [User Stories](https://github.com/users/DMASCoreDeclan/projects/20/views/10)
+- [Kanban](https://github.com/users/DMASCoreDeclan/projects/20)
+- [Labels](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/labels)
+- [Sizing](https://github.com/users/DMASCoreDeclan/projects/20/settings/fields/72230614)
+- [MoSCow](https://github.com/users/DMASCoreDeclan/projects/20/views/7)
+</details>
+
+<details>
+<summary>Wireframes</summary> 
+
+
+  Home Screen <img alt="Home Screen" src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+
+
+
+</details>
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+</details>
+
+
 
 ### Wireframes
 
