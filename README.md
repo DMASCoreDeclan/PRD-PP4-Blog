@@ -4,6 +4,192 @@
 
 
 
+
+
+
+# Project Background
+
+<details>
+
+<summary>Overview</summary> 
+
+- This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
+- I have appended several features to the original concept.
+- I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
+- Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
+- Users can also submit a Post of their own, making it more community driven
+- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
+- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
+</details>
+
+
+## Agile Methodology
+
+<summary>Personas</summary> 
+
+- Developer - the person developing the product
+- Anonymous User - a user who is not logged in, there are no stories for this visitor
+- User - someone who has registered and logged in
+- Admin - the Site Owner
+
+</details>
+
+<details>
+<summary>Github</summary> 
+Github was used for Planning, Recording and Sharing of all aspects of the project:
+
+The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
+- [Code Repository](https://github.com/DMASCoreDeclan/PRD-PP4-Blog)
+- [Version Control](https://github.com/DMASCoreDeclan/PRD-PP4-Blog) was used for version control of the code.  Regular [commits](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/commits/main/) were created.  Where possible each commit was isolated to either a specific Issue but may have occassionally also included a minor change to some other part of the code
+- [Milestones](https://github.com/users/DMASCoreDeclan/projects/20/views/3)
+- [User Stories](https://github.com/users/DMASCoreDeclan/projects/20/views/10)
+- [Kanban](https://github.com/users/DMASCoreDeclan/projects/20)
+- [Labels](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/labels)
+- [Sizing](https://github.com/users/DMASCoreDeclan/projects/20/settings/fields/72230614) User Stories were sized using T-shirt sizing (XS, S, M, L, XL) 
+- [MoSCow](https://github.com/users/DMASCoreDeclan/projects/20/views/7) Priorities are based on the MoSCoW method (Must have, Should have, Could have, Won't have)
+</details>
+
+
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+<details>
+<summary>Github</summary> 
+
+</details>
+
+
+
+</details>
+
+
+
+## Wireframes
+[Designed with Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/)
+
+Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
+
+  <details>
+  <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+  </details>
+
+  <details>
+  <summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
+  </details>
+
+  <details>
+  <summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
+  </details>
+
+  <details>
+  <summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
+  </details>
+
+  <details>
+  <summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
+  </details>
+
+  <details>
+  <summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
+  </details>
+
+  <details>
+  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
+  </details>
+
+  <details>
+  <summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+  </details>
+
+  <details>
+  <summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
+  </details>
+
+<br>
+<br>
+
+</details>
+ 
+## Entity Relationship Diagram
+[Designed with Lucidchart](https://www.lucidchart.com/pages/)
+
+<details>
+<summary>ERD</summary>  <img src=".ReadMe_Docs/images/PP4 ERD.png">
+</details>
+
+<details>
+<summary>Project - Blogstar</summary>
+
+Blogstar is the django Project.  By default it uses SQLite but we're using PostgreSQL instead.
+
+There are three apps within the project:
+
+1. blog
+1. about
+1. users
+1. external apps
+
+<details>
+<summary>App - blog</summary>
+
+- `blog` models: `Post`, `Comment` and `Category`
+- `blog` forms: `CommentForm`, `CategoryForm` and `PostForm`
+- `blog` views: `PostList`, `PostLike`, `PostCreate`, 
+- `blog` pages: `index.html`, `post_detail.html`, `edit_comment.html` and `post_create.html`
+
+</details>
+
+<details>
+<summary>App - about</summary>
+
+- `about` models:  `About` and `CollaborateRequest`
+- `about` forms: `CollaborateForm`
+- `about` views: `about_me`
+- `about` pages: `about.html`
+
+</details>
+
+<details>
+<summary>App - users</summary>
+
+- `users` models: `Profile`.
+- `users` forms: `UserRegisterForm`, `UserUpdateForm` and `ProfileUpdateForm`
+- `users` views: `register`, `profile`, `comment_delete`, `register`, `register`, `register`, `register`
+- `users` pages: ``
+
+</details>
+
+<details>
+<summary>external - alauth, cloudinary </summary>
+
+- There is one model in `users` called `Profile`.
+
+</details>
+
+</details>
+
+
+
+<br>
+<br>
+
+
+
+
+
+
 ### Live site: https://flyux.carlmurray.design
 
 # Table of Contents
@@ -61,134 +247,11 @@
 - [👋 Credits](#-credits)
 
 
-# Project Background
-
-<details>
-
-<summary>Overview</summary> 
-
-- This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
-- I have appended several features to the original concept.
-- I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
-- Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
-- Users can also submit a Post of their own, making it more community driven
-- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
-- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
-</details>
-
-
-<details>
-<summary>Agile Methodology</summary> 
-
-<details>
-<summary>Personas</summary> 
-
-- Developer - the person developing the product
-- Anonymous User - a user who is not logged in, there are no stories for this visitor
-- User - someone who has registered and logged in
-- Admin - the Site Owner
-
-</details>
-
-<details>
-<summary>Github</summary> 
-Github was used for Planning, Recording and Sharing of all aspects of the project:
-
-The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
-- [Code Repository](https://github.com/DMASCoreDeclan/PRD-PP4-Blog)
-- [Version Control](https://github.com/DMASCoreDeclan/PRD-PP4-Blog) was used for version control of the code.  Regular [commits](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/commits/main/) were created.  Where possible each commit was isolated to either a specific Issue but may have occassionally also included a minor change to some other part of the code
-- [Milestones](https://github.com/users/DMASCoreDeclan/projects/20/views/3)
-- [User Stories](https://github.com/users/DMASCoreDeclan/projects/20/views/10)
-- [Kanban](https://github.com/users/DMASCoreDeclan/projects/20)
-- [Labels](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/labels)
-- [Sizing](https://github.com/users/DMASCoreDeclan/projects/20/settings/fields/72230614)
-- [MoSCow](https://github.com/users/DMASCoreDeclan/projects/20/views/7)
-</details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
-</details>
-
-
-
-# Wireframes
-[Designed with Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/)
-
-Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
-
-  <details>
-  <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
-  </details>
-
-  <details>
-  <summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
-  </details>
-
-  <details>
-  <summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
-  </details>
-
-  <details>
-  <summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
-  </details>
-
-  <details>
-  <summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
-  </details>
-
-  <details>
-  <summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
-  </details>
-
-  <details>
-  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
-  </details>
-
-  <details>
-  <summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
-  </details>
-
-  <details>
-  <summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
-  </details>
-
-  <details>
-  <summary> Home Screen</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
-  </details>
-
-<br>
-<br>
-
-
-
-
-
 # 🔁 Process
 
 - The development process was carried out using an Agile methodology with a focus on iterative development and continuous improvement.
 - The project was managed using GitHub Project boards with user stories and tasks.  [GitHub Project](https://github.com/users/DMASCoreDeclan/projects/20/views/1)
-- User Stories were sized using T-shirt sizing (XS, S, M, L, XL) and prioritised based on the MoSCoW method (Must have, Should have, Could have, Won't have).
+- .
 
 ####  
 
@@ -201,8 +264,6 @@ I divided the User Stories into 3 types
 - Site Owner Stories - The underlying features that the Site Owner wanted
 - User Stories - The User Experience of the site
 
-</details>
- 
 
 
 
