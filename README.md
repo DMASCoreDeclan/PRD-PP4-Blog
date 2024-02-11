@@ -105,50 +105,7 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 - [MoSCow](https://github.com/users/DMASCoreDeclan/projects/20/views/7)
 </details>
 
-<details>
-<summary>Wireframes</summary> 
 
-<details>
-<summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
-</details>
-
-<details>
-<summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
-</details>
-
-<details>
-<summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
-</details>
-
-<details>
-<summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
-</details>
-
-<details>
-<summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
-</details>
-
-<details>
-<summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
-</details>
-
-<details>
-<summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
-</details>
-
-<details>
-<summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
-</details>
-
-<details>
-<summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
-</details>
-
-<details>
-<summary> Home Screen</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
-</details>
-
-</details>
 
 <details>
 <summary>Github</summary> 
@@ -175,21 +132,53 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 
 
 
-### Wireframes
-
-<details>
-
+# Wireframes
 [Designed with Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/)
 
 Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
 
+  <details>
+  <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+  </details>
 
+  <details>
+  <summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
+  </details>
 
+  <details>
+  <summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
+  </details>
 
+  <details>
+  <summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
+  </details>
 
-</details>
+  <details>
+  <summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
+  </details>
 
+  <details>
+  <summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
+  </details>
 
+  <details>
+  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
+  </details>
+
+  <details>
+  <summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+  </details>
+
+  <details>
+  <summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
+  </details>
+
+  <details>
+  <summary> Home Screen</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+  </details>
+
+<br>
+<br>
 
 
 
@@ -213,6 +202,7 @@ I divided the User Stories into 3 types
 - User Stories - The User Experience of the site
 
 </details>
+ 
 
 
 
