@@ -108,10 +108,45 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 <details>
 <summary>Wireframes</summary> 
 
+<details>
+<summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+</details>
 
-  Home Screen <img alt="Home Screen" src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+<details>
+<summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
+</details>
 
+<details>
+<summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
+</details>
 
+<details>
+<summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
+</details>
+
+<details>
+<summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
+</details>
+
+<details>
+<summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
+</details>
+
+<details>
+<summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
+</details>
+
+<details>
+<summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+</details>
+
+<details>
+<summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
+</details>
+
+<details>
+<summary> Home Screen</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+</details>
 
 </details>
 
