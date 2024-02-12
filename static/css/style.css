@@ -214,3 +214,10 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
     overflow-y: scroll;
     overflow-x: hidden;
  }
+
+/* replaced btn-delete with btn-delete-comment/delete in post_detail and profile-html to have different Modal Delete Message for Comments and Posts*/
+.btn-delete-comment, 
+.btn-delete-post {
+    color: #fff;
+    background: #E84610;
+}

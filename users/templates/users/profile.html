@@ -73,7 +73,7 @@
                             <p class="mb-0"><strong>Comment:</strong></p>
                             <p class="profile-excerpt mb-0">{{ userpost.body }}</p>
                             <div>
-                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
+                                <button class="btn btn-sm btn-delete-post ms-1" comment_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
                                 <!-- Change BUTTON to HREF to bring EDIT into its own page -->
                                 <a href="{% url 'comment_edit' userpost.slug userpost.pk %}" class="btn-sm btn btn-edit ms-1" comment_id="{{ userpost.id }}">Edit</a>
                                 </p>
@@ -89,7 +89,7 @@
                             <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' userpost.slug %}" class="post-link">{{ userpost.title }}</a></p>
                             <p class="profile-excerpt mb-0"><strong>Post:</strong> {{ userpost.excerpt }}</p>
                             <div>
-                                <button class="btn btn-sm btn-delete ms-1" post_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
+                                <button class="btn btn-sm btn-delete-post ms-1" post_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
                                 <a href="{% url 'post_edit' userpost.slug userpost.pk %}" class="btn-sm btn btn-edit ms-1" post_id="{{ userpost.id }}">Edit</a>
                                 </p>
                             </div>
@@ -108,7 +108,7 @@
                             <p class="mb-0"><strong>Comment:</strong></p>
                             <p class="profile-excerpt mb-0">{{ comment.body }}</p>
                             <div>
-                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                                <button class="btn btn-sm btn-delete-comment ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
                                 <!-- Change BUTTON to HREF to bring EDIT into its own page -->
                                 <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn btn-sm btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
                                 </p>
@@ -127,7 +127,7 @@
                             <p class="mb-0"><strong>Comment:</strong></p>
                             <p class="profile-excerpt mb-0">{{ comment.body }}</p>
                             <div>
-                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
+                                <button class="btn btn-sm btn-delete-comment ms-1" comment_id="{{ comment.id }}" post_slug="{{ comment.post.slug }}">Delete</button>
                                 <!-- Change BUTTON to HREF to bring EDIT into its own page -->
                                 <a href="{% url 'comment_edit' comment.post.slug comment.pk %}" class="btn-sm btn btn-edit ms-1" comment_id="{{ comment.id }}">Edit</a>
                                 </p>
@@ -139,8 +139,8 @@
                 <!-- End Add a list of Articles that I previously commented on.  I can Delete or Edit my comments here -->
             </div>
         </div>
-    <!-- Delete confirmation modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <!-- Delete Comment confirmation modal -->
+    <div class="modal fade" id="deleteCommentModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -153,7 +153,26 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                    <a id="deleteCommentConfirm" href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Post confirmation modal -->
+    <div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"
+                    id="deleteModalLabel">Delete post?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your post? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="deletePostConfirm" href="#" class="btn btn-danger">Delete</a>
                 </div>
             </div>
         </div>

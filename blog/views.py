@@ -181,7 +181,7 @@ def post_delete(request, slug, post_id):
     view to delete post
     """
     queryset = Post.objects.filter(status=1)
-    # post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(queryset, slug=slug)
     post = get_object_or_404(Post, pk=post_id)
 
     if post.author == request.user:
@@ -190,4 +190,4 @@ def post_delete(request, slug, post_id):
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own posts!')
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('profile'))
