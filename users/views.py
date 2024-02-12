@@ -87,9 +87,9 @@ def profile(request):
         #Locate User Created Posts of the logged in user
         user_create_post = Post.objects.filter(author__in=[request.user])
         #Locate User approved comments of the logged in user
-        approved = Post.objects.filter(status=1)
+        approved = Post.objects.filter(status=1, author__in=[request.user])
         #Locate User unapproved comments of the logged in user
-        unapproved = Post.objects.filter(status=0)
+        unapproved = Post.objects.filter(status=0, author__in=[request.user])
 
     context = {
         'u_form': u_form,

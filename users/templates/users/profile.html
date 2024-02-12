@@ -67,16 +67,11 @@
                 <!-- Start Add a list of Posts that I previously created.  I can Delete or Edit my comments here -->   
                 <h6>Posts waiting for approval:</h6>
                 <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
-                    {% for userpost in user_create_post %}
-                        {% if unapproved %}
+                    {% for userpost in unapproved %}
                         <div class="row mt-2 mb-2">
                             <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' userpost.slug %}" class="post-link">{{ userpost.title }}</a></p>
                             <p class="mb-0"><strong>Comment:</strong></p>
                             <p class="profile-excerpt mb-0">{{ userpost.body }}</p>
-                            <!-- <p>{{userpost}}</p>
-                            <p>{{approved}}</p>
-                            <p>{{unapproved}}</p> -->
-                            <p>{{post_contents}}</p>
                             <div>
                                 <button class="btn btn-sm btn-delete ms-1" comment_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
                                 <!-- Change BUTTON to HREF to bring EDIT into its own page -->
@@ -84,14 +79,12 @@
                                 </p>
                             </div>
                         </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
                 <hr>
                 <h6>Posts approved!:</h6>
                 <div class="d-flex flex-wrap justify-content-center mt-2 profile-container">
-                    {% for userpost in user_create_post %}
-                        {% if approved %}
+                    {% for userpost in approved %}
                         <div class="row mt-2 mb-2">
                             <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' userpost.slug %}" class="post-link">{{ userpost.title }}</a></p>
                             <p class="mb-0"><strong>Comment:</strong></p>
@@ -103,7 +96,6 @@
                                 </p>
                             </div>
                         </div>
-                        {% endif %}
                     {% endfor %}
                 </div>
                 <!-- Add a list of Posts that I previously created.  I can Delete or Edit my comments here -->
