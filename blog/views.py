@@ -145,3 +145,34 @@ class PostCreate(View):
         },
     )
 
+def post_edit(request, slug, post_id):
+    """
+    view to edit comments was originally part of post_detail.html
+    To allow the user to see his likes and commented posts I moved
+    the functionality to edit_comment.html
+    """
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(Post, pk=post_id)
+    post_form = PostForm(instance=post)
+    if request.method == "POST":
+        post_form =PostForm(data=request.POST, instance=post)
+        if post_form.is_valid() and post.author == request.user:
+            post = post_form.save(commit=False)
+            post.post = post
+            post.status = "0"
+            post.save()
+            messages.add_message(request, messages.SUCCESS, 'Post updated!')
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        else:
+            messages.add_message(request,message.ERROR, 'Error updating post!')
+
+    else:
+        return render(
+        request, 
+        'blog/edit_post.html', 
+        {
+            'post': post,
+            'post_form': post_form,
+        },
+    )

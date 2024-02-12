@@ -87,12 +87,10 @@
                     {% for userpost in approved %}
                         <div class="row mt-2 mb-2">
                             <p class="profile-excerpt mb-0"><strong>Post:</strong> <a href="{% url 'post_detail' userpost.slug %}" class="post-link">{{ userpost.title }}</a></p>
-                            <p class="mb-0"><strong>Comment:</strong></p>
-                            <p class="profile-excerpt mb-0">{{ userpost.body }}</p>
+                            <p class="profile-excerpt mb-0"><strong>Post:</strong> {{ userpost.excerpt }}</p>
                             <div>
-                                <button class="btn btn-sm btn-delete ms-1" comment_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
-                                <!-- Change BUTTON to HREF to bring EDIT into its own page -->
-                                <a href="{% url 'comment_edit' userpost.slug userpost.pk %}" class="btn-sm btn btn-edit ms-1" comment_id="{{ userpost.id }}">Edit</a>
+                                <button class="btn btn-sm btn-delete ms-1" post_id="{{ userpost.id }}" post_slug="{{ userpost.slug }}">Delete</button>
+                                <a href="{% url 'post_edit' userpost.slug userpost.pk %}" class="btn-sm btn btn-edit ms-1" post_id="{{ userpost.id }}">Edit</a>
                                 </p>
                             </div>
                         </div>
