@@ -9,7 +9,8 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }} | {{ post.category }}</p>
+                <hr>                
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
@@ -39,7 +40,14 @@
     <strong>  
         <div class="container">
             <div class="row">
-                
+                {% if user == post.author %}
+                    <div>
+                        <button class="btn btn-sm btn-delete-post ms-1" post_id="{{ post.id }}" post_slug="{{ post.slug }}">Delete</button>
+                        <a href="{% url 'post_edit' post.slug post.pk %}" class="btn-sm btn btn-edit ms-1" post_id="{{ post.id }}">Edit</a>
+                        </p>
+                    </div>
+                {% endif %}
+                {% if user.is_authenticated and not user == post.author%}
                     <div class="col-sm-5">
                         Your View on this post
                     </div>
@@ -55,6 +63,7 @@
                             </form>
                         {% endif %}
                     </div>
+                {% endif %}
             </div>
         </div>
         <br>
@@ -76,7 +85,7 @@
         </div>
     </div>
     <div class="col-12">
-        <hr>
+    <hr>
     </div>
     </div>
     <!-- Displaying Comments -->
