@@ -15,6 +15,7 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                <a href="{% url 'post_detail' post.slug %}" class="post-link scale">
                                 {% if "placeholder" in post.featured_image.url %}
                                     <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
                                 {% else %}
@@ -23,8 +24,10 @@
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
+                                <div class="image-flash-right">
+                                    <p class="author">{{ post.category }}</p>
+                                </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt | safe }}</p>
                             </a>

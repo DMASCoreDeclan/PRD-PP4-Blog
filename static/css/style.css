@@ -222,3 +222,18 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
     color: #fff;
     background: #E84610;
 }
+
+/* Add the Category for the Post */
+.image-flash-right {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    right: -2px;
+    background-color: #188181;
+}
+
+.masthead-btn {
+    color: #445261;
+    background-color: white;
+    /* position: relative; */
+}
