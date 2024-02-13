@@ -96,7 +96,6 @@ def profile(request):
         'p_form': p_form,
         'user_comments': user_comments,
         'user_liked_post': user_liked_post,
-        'user_create_post': user_create_post,
         'approved': approved,
         'unapproved': unapproved,
     }
@@ -104,18 +103,3 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 
-def comment_delete(request, slug, comment_id):
-    """
-    view to delete comment
-    """
-    queryset = Post.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
-    comment = get_object_or_404(Comment, pk=comment_id)
-
-    if comment.author == request.user:
-        comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-    else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
-
-    return HttpResponseRedirect(reverse('register/profile/profile.html', args=[slug]))

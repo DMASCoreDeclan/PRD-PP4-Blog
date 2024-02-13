@@ -149,9 +149,9 @@ def post_edit(request, slug, post_id):
     """
     view to edit posts
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
-    post = get_object_or_404(Post, pk=post_id)
+    # post = get_object_or_404(Post, pk=post_id)
     post_form = PostForm(instance=post)
     if request.method == "POST":
         post_form =PostForm(data=request.POST, instance=post)
@@ -180,7 +180,7 @@ def post_delete(request, slug, post_id):
     """
     view to delete post
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     post = get_object_or_404(Post, pk=post_id)
 
