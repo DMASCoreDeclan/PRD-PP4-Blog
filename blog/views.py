@@ -163,7 +163,7 @@ def post_edit(request, slug, post_id):
             messages.add_message(request, messages.SUCCESS, 'Post updated!')
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
-            messages.add_message(request,message.ERROR, 'Error updating post!')
+            messages.add_message(request, messages.ERROR, 'Error updating post!')
 
     else:
         return render(
