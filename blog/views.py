@@ -127,37 +127,34 @@ class PostLike(View):
 
 # Add Like functionality to Post that user likes
 class PostCreate(View):
-    def post(self, request, *arg, **kwargs):
-        post_form = PostForm(data=request.POST)
+    def post(self, request, *args, **kwargs):
+        post_form = PostForm(request.POST, request.FILES)
         if post_form.is_valid():
             post = post_form.save(commit=False)
             post.author = request.user
             post.slug = slugify(post.title)
             post.save()
-            messages.add_message(request, messages.SUCCESS, 'Post created!')
+            messages.add_message(request, messages.SUCCESS, 'Post submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!')
             return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
     
-    def get(self, request, *arg, **kwargs):
+    def get(self, request, *args, **kwargs):
         post_form = PostForm()
-        return render(request,  'blog/post_create.html', 
-        {
-            'post_form': post_form,
-        },
-    )
+        return render(request, 'blog/post_create.html', {'post_form': post_form})
+
 
 def post_edit(request, slug, post_id):
     """
-    view to edit posts
+    View to edit posts
     """
-    queryset = Post.objects.all()
-    post = get_object_or_404(queryset, slug=slug)
-    # post = get_object_or_404(Post, pk=post_id)
+    post = get_object_or_404(Post, slug=slug)
     post_form = PostForm(instance=post)
+
     if request.method == "POST":
-        post_form =PostForm(data=request.POST, instance=post)
+        post_form = PostForm(request.POST, request.FILES, instance=post)
         if post_form.is_valid() and post.author == request.user:
             post = post_form.save(commit=False)
-            post.post = post
+            # Assuming 'post' is not supposed to be updated here, use a different field to assign the post object
+            post_author = post
             post.status = "0"
             post.save()
             messages.add_message(request, messages.SUCCESS, 'Post updated!')
@@ -165,8 +162,7 @@ def post_edit(request, slug, post_id):
         else:
             messages.add_message(request, messages.ERROR, 'Error updating post!')
 
-    else:
-        return render(
+    return render(
         request, 
         'blog/edit_post.html', 
         {
@@ -174,6 +170,7 @@ def post_edit(request, slug, post_id):
             'post_form': post_form,
         },
     )
+
 
 
 def post_delete(request, slug, post_id):
