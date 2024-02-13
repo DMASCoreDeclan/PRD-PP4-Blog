@@ -11,10 +11,67 @@
 
 <details>
 
-<summary>Overview</summary> 
+<summary>Overview</summary>
 
-- This Django web development project is an extension of Code Institute, "I Think Therefore I Blog".  
+- This Django web development project is an extension of Code Institute, "I Think Therefore I Blog". 
+- Unfortunately, for 95% of my development time, I confused, create a custom *model* with creating a custom *app*.  So at the 12<sup>th</sup> hour, I had to create a custom model: **Category**.  I integrated this into the masthead of each post and made it a mandatory dropdown selection for all posts.
+## Personas:
+1. Anonymous - Not Registerd or Registered but not Logged In
+1. User - Registered AND Logged In
+1. django superuser - Registered AND Logged In as Admin with password ![alt text](.ReadMe_Docs/images/image-4.png)
+
+## Original Persona Capabilities
+1. Anonymous people can: 
+    - Read the site 
+    - Register
+    - Collaborate
+
+1. User:
+- In addition to the Anonymous capabilities they can:
+    1. Login
+    1. Logout
+    1. Like/Unlike a Post
+    1. Edit/Delete their own Comment(s)
+
+3. django superuser (Admin):
+- In addition to the User capabilities they can:
+    1. Use django backend /admin
+
+## New Persona Capabilities
+1. Anonymous: 
+    1. no changes
+
+1. User:
+- I added a CREATE page and a PROFILE page.
+    - In the CREATE page, Users can:
+    - Create a post with a Title*, Category*, Image, Content* and Excerpt 
+    - Upon submittal of a post they get a "Post created!" success message and are redirected to the post_detail of the post they created.
+    - The post is written to the Post Model with the username, slug, and status of *draft*.  Just like the original, the Admin must approve it so that he retains control of the content of the site while allowing Users the opportunity for greater participation.  
+    - once PUBLISHED, the User who created it can no longer Like their own Post, instead they can Delete/Edit their post  
+    - In the Profile page users can now:
+        1. Create/Update their: Username, Email, FirstName, LastName and profile picture
+        1. View a list of Posts that they have Liked and can Unlike
+        1. Update/Delete/View a list of Posts that they have submitted for approval
+        1. Update/Delete/View a list of Posts that have been approved
+        1. Update/Delete/View a list of Comments that they have submitted for approval
+        1. Update/Delete/View a list of Comments that have been approved        
+3. django superuser (Admin):
+    - The django create superuser is: Admin and the password is: ![alt text](.ReadMe_Docs/images/image-4.png)
+        1. For some of the features of the site you ***MUST*** login as Admin
+            - I added an ADMIN link that brings you to /admin.
+            - I wanted to add an APPROVE button to unapproved posts so that when logged in as Admin, posts could be approved on the frontend - a feature for the future!
+
+
+
+
+
+
+
+- To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  Users can now  
 - I have appended several features to the original concept.
+- The original concept was to create Posts on the backend and allow registered users to create and delete comments on the frontend.  These comments were subject to approval of the site owner.  
+The anonymous user could view the HOME, ABOUT, Post Detail.
+
 - I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
 - Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
 - Users can also submit a Post of their own, making it more community driven
