@@ -42,7 +42,7 @@ def post_detail(request, slug):
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS, 
-                'Your comment has been submitted and will be available to see by everyone, once it\'s approved by the Administrator'
+                'Your comment submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!'
             )
             
             return HttpResponseRedirect(reverse('post_detail', args=[slug])) # Added this line as the Comments were duplicating when f5 was pressed
@@ -134,7 +134,11 @@ class PostCreate(View):
             post.author = request.user
             post.slug = slugify(post.title)
             post.save()
-            messages.add_message(request, messages.SUCCESS, 'Post submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!')
+            messages.add_message(
+                request, 
+                messages.SUCCESS, 
+                'Post submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!'
+                )
             return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
     
     def get(self, request, *args, **kwargs):
@@ -154,11 +158,12 @@ def post_edit(request, slug, post_id):
         if post_form.is_valid() and post.author == request.user:
             post = post_form.save(commit=False)
             # Assuming 'post' is not supposed to be updated here, use a different field to assign the post object
-            post_author = post
+            post.author = request.user
+            post.slug = slugify(post.title)
             post.status = "0"
             post.save()
             messages.add_message(request, messages.SUCCESS, 'Post updated!')
-            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+            return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
         else:
             messages.add_message(request, messages.ERROR, 'Error updating post!')
 
