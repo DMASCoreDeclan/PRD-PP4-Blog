@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-# ensures the profile view does not load unless you're logged in
-from django.contrib.auth.decorators import login_required 
+# ensures the profile view does not load unless you're logged in #
+from django.contrib.auth.decorators import login_required
 
 '''
 Add custom form: UserRegisterForm form for register.html
@@ -11,9 +11,9 @@ Add custom form: ProfileUpdateForm form for register/profile.html
 '''
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from blog.models import Comment, Post
- 
 
-# Create your views here.
+
+# Create your views here. #
 
 def register(request):
     '''
@@ -22,23 +22,26 @@ def register(request):
     This VIEW is for /register.
     It checks to see if its a POST request and then applies validation.
     if the validation is not correct, the view is returned to the user with the
-    information that does not need to be changed and removes the information that
-    does need to be changed.
-    Successful registration returns you to the home page with a message.SUCCESS displayed 
-    at the top of the screen
+    information that does not need to be changed and removes the information
+    that does need to be changed.
+    Successful registration returns you to the home page with a message.SUCCESS
+    displayed at the top of the screen
     '''
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account successfully created for {username}, welcome to blog|star, please log in')
+            messages.success(
+                request,
+                f"'Account successfully created for {username},"
+                "welcome to blog|star, please log in'")
             return redirect('account_login')
     else:
         form = UserRegisterForm()
 
     return render(
-        request, 
+        request,
         'users/register.html',
         {
             'form': form
@@ -53,42 +56,51 @@ If the User is not authenticated, the @login_required presents login.html,
 and appends "?next=/register/profile/" to the end of the login url so that
 after successful login, the user is redirected to their profile
 '''
-@login_required     
+
+
+@login_required
 def profile(request):
     '''
     gathers the form fields of User/ProfileUpdateForm(s)
-    and presents them in the return context for viewing within 
+    and presents them in the return context for viewing within
     users/profile.html prepopulated with the known details
     currently stored in admin/auth/user/<user_id>/ and
     admin/users/profile/<user_id>/
     '''
     if request.method == 'POST':
         u_form = UserUpdateForm(
-            request.POST, 
+            request.POST,
             instance=request.user
-            )  
+            )
         p_form = ProfileUpdateForm(
-            request.POST, 
-            request.FILES, 
+            request.POST,
+            request.FILES,
             instance=request.user.profile
             )
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, f'{request.user.username}, your account was successfully updated')
+            messages.success(
+                request,
+                f'{request.user.username}, your account was updated'
+                )
             return redirect('profile')
 
     else:
-        u_form = UserUpdateForm(instance=request.user)  
+        u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
         user_comments = Comment.objects.filter(author=request.user)
-        #Locate Liked posts of the logged in user
-        user_liked_post = Post.objects.filter(likes__in=[request.user]) 
-        #Locate User Created Posts of the logged in user
+
+        # Locate Liked posts of the logged in user #
+        user_liked_post = Post.objects.filter(likes__in=[request.user])
+
+        # Locate User Created Posts of the logged in user #
         user_create_post = Post.objects.filter(author__in=[request.user])
-        #Locate User approved comments of the logged in user
+
+        # Locate User approved comments of the logged in user #
         approved = Post.objects.filter(status=1, author__in=[request.user])
-        #Locate User unapproved comments of the logged in user
+
+        # Locate User unapproved comments of the logged in user #
         unapproved = Post.objects.filter(status=0, author__in=[request.user])
 
     context = {
@@ -101,5 +113,3 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
-
-

@@ -42,8 +42,8 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     # 'users'
     'users.apps.UsersConfig',
-    # 'blog'    
-    'blog.apps.BlogConfig',  
+    # 'blog'
+    'blog.apps.BlogConfig',
     # 'about'
     'about.apps.AboutConfig',
     'django.contrib.admin',
@@ -61,7 +61,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'django_summernote',
     'cloudinary',
-    
+
 ]
 
 SITE_ID = 1
@@ -119,9 +119,9 @@ DATABASES = {
 }
 
 # This is a list of the trusted origins for requests that are allowed
-# to add blog post content from the admin dashboard. 
+# to add blog post content from the admin dashboard.
 # gitpod.io is used for local development
-# heroku.com is used for production deployment 
+# heroku.com is used for production deployment
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeanyapp.com",
     "https://*.gitpod.io",
@@ -164,7 +164,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# '/static/' has been used instead of 'static/' as I downgraded django from 4.2 to 3.2
+# '/static/' has been used instead of 'static/' #
+# as I downgraded django from 4.2 to 3.2 #
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -173,4 +174,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
