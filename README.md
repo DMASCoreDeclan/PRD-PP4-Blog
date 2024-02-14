@@ -1,12 +1,5 @@
 
 
-
-
-
-
-
-
-
 # Project Background
 
 <details>
@@ -15,6 +8,17 @@
 
 - This Django web development project is an extension of Code Institute, "I Think Therefore I Blog". 
 - Unfortunately, for 95% of my development time, I confused, create a custom *model* with creating a custom *app*.  So at the 12<sup>th</sup> hour, I had to create a custom model: **Category**.  I integrated this into the masthead of each post and made it a mandatory dropdown selection for all posts.
+
+- To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  
+- The original concept was to create Posts on the backend and allow registered users to create and delete comments on the frontend.  These comments were subject to approval of the site owner.  
+- I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
+	- This required me to add signals.py in the users app.  users.models.profile is a ManyToMany table and connects the django model User to the Cloudinary model CloudinaryField.  When the user adds a picture to their profile, the signal makes an entry in Profile.  Otherwise, when a user changed their profile picture, the Admin would have to connect their picture to their profile manually.
+
+- Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
+- Users can also submit a Post of their own, making it more community driven
+- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
+- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
+
 ## Personas:
 1. Anonymous - Not Registerd or Registered but not Logged In
 1. User - Registered AND Logged In
@@ -47,7 +51,7 @@
     - Create a post with a Title*, Category*, Image, Content* and Excerpt 
     - Upon submittal of a post they get a "Post created!" success message and are redirected to the post_detail of the post they created.
     - The post is written to the Post Model with the username, slug, and status of *draft*.  Just like the original, the Admin must approve it so that he retains control of the content of the site while allowing Users the opportunity for greater participation.  
-    - once PUBLISHED, the User who created it can no longer Like their own Post, instead they can Delete/Edit their post  
+    - Once a Post is PUBLISHED, the User who created it can no longer Like, instead they can Delete/Edit their post  
     - In the Profile page users can now:
         1. Create/Update their: Username, Email, FirstName, LastName and profile picture
         1. View a list of Posts that they have Liked and can Unlike
@@ -61,22 +65,6 @@
             - I added an ADMIN link that brings you to /admin.
             - I wanted to add an APPROVE button to unapproved posts so that when logged in as Admin, posts could be approved on the frontend - a feature for the future!
 
-
-
-
-
-
-
-- To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  Users can now  
-- I have appended several features to the original concept.
-- The original concept was to create Posts on the backend and allow registered users to create and delete comments on the frontend.  These comments were subject to approval of the site owner.  
-The anonymous user could view the HOME, ABOUT, Post Detail.
-
-- I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
-- Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
-- Users can also submit a Post of their own, making it more community driven
-- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
-- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
 </details>
 
 
@@ -105,30 +93,6 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 - [Sizing](https://github.com/users/DMASCoreDeclan/projects/20/settings/fields/72230614) User Stories were sized using T-shirt sizing (XS, S, M, L, XL) 
 - [MoSCow](https://github.com/users/DMASCoreDeclan/projects/20/views/7) Priorities are based on the MoSCoW method (Must have, Should have, Could have, Won't have)
 </details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
-<details>
-<summary>Github</summary> 
-
-</details>
-
-
-
 </details>
 
 
@@ -163,7 +127,7 @@ Any vistor who has the URL can see the home sreen [blog|star Home](https://blogs
   </details>
 
   <details>
-  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/Create.png">
+  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/CREATE.png">
   </details>
 
   <details>
@@ -238,16 +202,85 @@ There are three apps within the project:
 </details>
 
 
+## Roadmap - Stories
 
-<br>
-<br>
+<details>
+<summary>Site Owner User Story: APPROVE Draft Posts from the front end</summary>
+
+[Site Owner User Story: APPROVE Draft Posts from the front end](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/37)
+
+</details>
+
+<details>
+<summary>Site Owner User Story: Extend superuser to users other than "Admin"</summary>
+
+[Site Owner User Story: Extend superuser to users other than "Admin"](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/38)
+
+</details>
+
+<details>
+<summary>Site Owner User Story: APPROVE Draft Comments from the front end</summary>
+
+[Site Owner User Story: APPROVE Draft Comments from the front end](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/39)
+
+</details>
+
+<details>
+<summary>Site Owner User Story: Password Reset</summary>
+
+[Site Owner User Story: Password Reset](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/40)
+
+</details>
+
+# Technologies Used
+
+This section outlines the various technologies used throughout the project and the purpose each serves.
+
+## Core Development Technologies
+
+<details>
+
+- [Django](https://www.djangoproject.com/) used as a full-stack framwork for developing the app.
+- [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) used for client-side interaction and validation.
+- [HTML](https://html.spec.whatwg.org/)/[CSS](https://www.w3.org/Style/CSS/Overview.en.html) + [Django Template Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/) used for building out site pages.
+
+</details>
+
+## Python/Django Packages, Libraries, Frameworks and CDNs
+
+<details>
+
+- [cloudinary](https://pypi.org/project/django-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API. You can use Cloudinary for both media and static file
+- [crispy-bootstrap5](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API
+- [django-allauth](https://docs.allauth.org/en/latest/) - A fully integrated Django authentication app that allows for both local and social authentication, with flows that just work, beautifully!
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
+- [django-summernote](https://pypi.org/project/django-summernote/) - Summernote is a JavaScript library that helps you create WYSIWYG editors online.
+- [gunicorn](https://gunicorn.org/) - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX
+- [oauthlib](https://pypi.org/project/oauthlib/) - A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language
+- [PyJWT](https://pyjwt.readthedocs.io/) - Python library which allows you to encode and decode JSON Web Tokens (JWT)
+- [FavIcon](https://favicon.io/) - Quickly generate your favicon from text, image, or choose from hundreds of emoji
+- [Google Fonts](https://fonts.google.com/) - High-quality google fonts to use on your web site.
+- [Font Awesome](https://fontawesome.com/) - Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites
+
+</details>
+
+## Infrastructural Technologies
+
+<details>
+
+- [PostgreSQL](https://www.postgresql.org/docs/12/) Current version provided by [Code Institute PostgresSQL](https://dbs.ci-dbs.net//)   (Originally on [ElephantSQL](https://www.elephantsql.com/) until v12 became unavailable.)  
+- [Heroku](https://www.heroku.com/) - used for hosting the application.
+- [Cloudinary](https://cloudinary.com/) - used for storing static files and media files.
+
+</details>
 
 
 
-
-
-
-### Live site: https://flyux.carlmurray.design
+<details>
 
 # Table of Contents
 - [Project Background](#Project-Background)
@@ -260,24 +293,7 @@ There are three apps within the project:
       - [📈 Link to the GitHub Project board](#-link-to-the-github-project-board)
       - [👤 User Stories](#-user-stories)
     - [🧮 Data Models](#-data-models)
-- [🪀 Features](#-features)
-    - [💩 CRUD Functionality](#-crud-functionality)
-    - [🔑 Authentication \& Authorisation](#-authentication--authorisation)
-    - [🧭 Navigation](#-navigation)
-    - [🔎 Search](#-search)
-    - [✈️ Flights](#️-flights)
-      - [🗓️ Alternate Dates](#️-alternate-dates)
-      - [💸 Fares](#-fares)
-      - [💼 Baggage Policy](#-baggage-policy)
-      - [🛫 Edit Flights](#-edit-flights)
-    - [👯 Passengers](#-passengers)
-    - [💳 Checkout](#-checkout)
-    - [✅ Confirmation](#-confirmation)
-    - [📜 Bookings](#-bookings)
-      - [❌ Cancel Booking](#-cancel-booking)
-      - [👥 Edit Passengers](#-edit-passengers)
-    - [🌐 Blog](#-blog)
-    - [🤔 About](#-about)
+-
 - [🛣️ Roadmap](#️-roadmap)
 - [🪲 Bugs](#-bugs)
 - [⚙️ Technologies Used](#️-technologies-used)
@@ -355,186 +371,6 @@ The data models for the project are shown below:
 </details>
 
 ---
-
-<br>
-<br>
-<br>
-
----
-
-# 🪀 Features
-
-### 💩 CRUD Functionality
-
-<details>
-
-- User CRUD functionality is primarily related to `Booking`s.
-  - Create: Users create a Booking by going through the full user flow. A `Booking` is created once the user completes checkout.
-  - Read: Users can view their created `Booking`s and relevant `Booking` details when logged in.
-  - Update: Users can edit a `Booking` by changing `Passenger` information for that `Booking`.
-  - Delete: Users can cancel a `Booking` which deletes it from the database.
-- Admin CRUD functionality exists for all Models and is done from the Django Admin dashboard.
-
-</details>
-
-### 🔑 Authentication & Authorisation
-
-<details>
-
-- Users can create an account from the Signup page.
-- Users can login from the Login page.
-- Authorisation is required to reach certain pages such as Bookings, Passenger Details and Checkout. Requesting these pages while unauthprised will redirect users to the Login page.
-- If not logged in by the time a user reaches the Passenger Details page, a modal shows on screen with the Signup form. Users can also click the Login link at the bottom of the form instead, and be redirected to the Passenger Details page on successful authentication.
-
-<details>
-<summary>Signup page</summary>
-
-![Screenshot of Signup page](/readme/signup.jpeg)
-
-</details>
-<details>
-<summary>Login page</summary>
-
-![Screenshot of Login page](/readme/login.jpeg)
-
-</details>
-<details>
-<summary>Signup modal</summary>
-
-![Screenshot of Signup modal](/readme/signup-modal.jpeg)
-
-</details>
-</details>
-
-### 🧭 Navigation
-
-<details>
-
-- Primary navigation is located in the header and is present on all pages.
-- A hamburger menu is present on mobile devices and expands to show the primary navigation links.
-
-<details>
-<summary>Navigation on homepage</summary>
-
-![Screenshot of homepage ](/readme/homepage.jpeg)
-
-</details>
-</details>
-
-### 🔎 Search
-
-<details>
-
-- The search form is located on the homepage and allows users to search for flights by entering their origin, destination, trip type, dates and number of passengers.
-- The search form is validated on the front-end and back-end to ensure that the data entered is valid and that the search can be performed.
-- If the search is valid, the user is redirected to the Flights page where they can view the search results.
-- If the search is invalid, an error message is shown.
-
-<details>
-<summary>Homepage with search form</summary>
-
-![Screenshot of homepage](/readme/homepage.jpeg)
-
-</details>
-</details>
-
-### ✈️ Flights
-
-<details>
-
-- The Flights page shows the search results for the user's search query.
-- If there are no results, an info message is shown prompting the user to try an alternate date.
-- If there are results, the results are shown in a card format with the outbound and return flights shown in separate cards.
-- Once flights have been selected, the CTA button is enabled and the user can proceed to the next step in the booking flow. Selected flight numbers are stored in session storage and are used to populate the Order Summary page.
-<details>
-<summary>Flights</summary>
-
-![Screenshot of Flights page](/readme/flights.jpeg)
-
-</details>
-</details>
-
-#### 🗓️ Alternate Dates
-
-<details>
-
-- The alternate dates feature allows users to view flight results for alternate dates to their original search query.
-- The feature works by sending an AJAX request (via htmx) to the server with the new date, and the server responds with the new flight data for that date, and new date options for the alternate date selector.
-- The new flight data is then loaded into the page and the click event listeners are re-attached to the new flight cards so that they expand when clicked, to show the fares.
-- It is not possible to select a date that is in the past.
-- It is not possible to select a date that is before the outbound date if the trip type is return.
-
-</details>
-
-#### 💸 Fares
-
-<details>
-
-- The fares are shown in a card format with the outbound and return fares shown in separate cards.
-- The user can click on a fare card to expand it and show the fare details.
-- The user can select a fare by clicking the button on the fare card.
-- Selected fare information is stored in session storage and is used to populate the Order Summary page.
-
-<details>
-<summary>Fares</summary>
-
-![Screenshot of Fares](/readme/flights-fares.jpeg)
-
-</details>
-</details>
-
-#### 💼 Baggage Policy
-
-<details>
-
-- Links to view the airline's baggage policy are shown on the fare cards.
-- Clicking the link opens a modal with the baggage policy information.
-- The modal can be closed by pressing ESC or clicking outside of the modal.
-
-<details>
-<summary>Baggage Policy Modal</summary>
-
-![Screenshot of baggage policy modal](/readme/baggage-modal-screenshot.png)
-
-</details>
-</details>
-
-#### 🛫 Edit Flights
-
-<details>
-
-- The user can edit their flight selection by clicking the "Edit" button on the fare card.
-- This reloads the previous flight search results and allows the user to select new flights.
-
-<details>
-<summary>Edit Flights</summary>
-
-![Screenshot of Edit Flights](/readme/flights-fares.jpeg)
-
-</details>
-</details>
-
-### 👯 Passengers
-
-<details>
-
-- The Passengers form is shown after the user has selected their flights.
-- The form is pre-populated with the number of passengers selected in the search form.
-- If logged in, the form is pre-populated with the user's details.
-- The "Confirm email" field is not pre-populated and must be entered by the user as a security and error prevention measure.
-
-<details>
-<summary>Passengers form</summary>
-
-![Screenshot of Passengers form](/readme/passengers.jpeg)
-
-</details>
-</details>
-
-### 💳 Checkout
-
-<details>
-
 - The Checkout page shows the Order Summary and the Payment Details form.
 - The Order Summary is populated with the flight and fare information stored in session storage.
 - For the purposes of this project, the Payment Details form is a mockup and does not process any payments. The form is lightly validated on the front-end using the Payform library with some minor modification to allow for dummy card data to be entered.
@@ -641,34 +477,7 @@ The data models for the project are shown below:
 <br>
 <br>
 
-# 🛣️ Roadmap
 
-<details>
-
-<details>
-<summary>Implement seat selection as per original design</summary>
-
-![Screenshot of seat selection design](/readme/seat-selection.png)
-
-</details>
-<details>
-<summary>Implement 'Extras' screen for seat selection, baggage selection, car hire and insurance as per original design.</summary>
-
-![Screenshot of extras selection](/readme/extras-screen.png)
-
-</details>
-
-<details>
-<summary>Build out flights page to show prices in alternate date selector, sort options, cart and edit search</summary>
-
-![Search results screen](/readme/flight-results.png)
-
-</details>
-> Add password reset and "Remember me" login option
-
----
-
-</details>
 
 ---
 
@@ -755,51 +564,7 @@ const validateForm = function (e) {
 <br>
 <br>
 
-# ⚙️ Technologies Used
 
-This section outlines the various technologies used throughout the project and the purpose each serves.
-
-## 💾 Core Development Technologies
-
-<details>
-
-- [Django](https://www.djangoproject.com/) used as a full-stack framwork for developing the app.
-- [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) used for client-side interaction and validation.
-- [HTML](https://html.spec.whatwg.org/)/[CSS](https://www.w3.org/Style/CSS/Overview.en.html) + [Django Template Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/) used for building out site pages.
-
-</details>
-
-## 📚 Python/Django Packages, Libraries, Frameworks and CDNs
-
-<details>
-
-- [cloudinary](https://pypi.org/project/django-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API. You can use Cloudinary for both media and static file
-- [crispy-bootstrap5](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
-- [dj-database-url](https://pypi.org/project/dj-database-url/) - This simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
-- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API
-- [django-allauth](https://docs.allauth.org/en/latest/) - A fully integrated Django authentication app that allows for both local and social authentication, with flows that just work, beautifully!
-- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) - Django-crispy-forms provides you with a |crispy filter and {% crispy %} tag that will let you control the rendering behavior of your Django forms in a very elegant and DRY way
-- [django-summernote](https://pypi.org/project/django-summernote/) - Summernote is a JavaScript library that helps you create WYSIWYG editors online.
-- [gunicorn](https://gunicorn.org/) - Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX
-- [oauthlib](https://pypi.org/project/oauthlib/) - A generic, spec-compliant, thorough implementation of the OAuth request-signing logic
-- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language
-- [PyJWT](https://pyjwt.readthedocs.io/) - Python library which allows you to encode and decode JSON Web Tokens (JWT)
-- [FavIcon](https://favicon.io/) - Quickly generate your favicon from text, image, or choose from hundreds of emoji
-- [Google Fonts](https://fonts.google.com/) - High-quality google fonts to use on your web site.
-- [Font Awesome](https://fontawesome.com/) - Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators
-- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites
-
-</details>
-
-## 🖥️ Infrastructural Technologies
-
-<details>
-
-- [PostgreSQL](https://www.postgresql.org/docs/12/) Current version provided by [Code Institute PostgresSQL](https://dbs.ci-dbs.net//)   (Originally on [ElephantSQL](https://www.elephantsql.com/) until v12 became unavailable.)  
-- [Heroku](https://www.heroku.com/) - used for hosting the application.
-- [Cloudinary](https://cloudinary.com/) - used for storing static files and media files.
-
-</details>
 
 
 ---
