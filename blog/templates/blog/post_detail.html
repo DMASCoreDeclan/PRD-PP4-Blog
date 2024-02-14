@@ -119,9 +119,9 @@
                     style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit"
-                    class="btn btn-signup btn-lg">Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
+                
             {% else %}
                 <a class="link " aria-current="page" href="{% url 'account_login' %}">Log in to leave a comment</a>
             {% endif %}

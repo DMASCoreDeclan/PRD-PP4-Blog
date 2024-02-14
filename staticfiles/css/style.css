@@ -242,3 +242,8 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
     overflow: hidden;
 }
 
+/* Cancel button on edit_post.html */
+.btn-cancel {
+    background-color: #E84610;
+    color: #fff;
+}

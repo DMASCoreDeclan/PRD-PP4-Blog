@@ -18,8 +18,8 @@
                 style="margin-top: 1.3em;">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button id="submitButton" type="submit"
-                class="btn btn-signup btn-lg">Submit</button>
+                <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                <a class="ms-3 btn btn-cancel btn-lg mb-3" id="cancelButton"href="{{request.META.HTTP_REFERER}}">Cancel</a>
             </form>
         {% else %}
             <a class="link " aria-current="page" href="{% url 'account_login' %}">Log in to leave a comment</a>
