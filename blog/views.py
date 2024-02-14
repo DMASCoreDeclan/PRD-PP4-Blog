@@ -79,7 +79,11 @@ def comment_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment updated!')
+            messages.add_message(
+                request, 
+                messages.SUCCESS, 
+                'Comment submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!'
+                )
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
         else:
             messages.add_message(request,message.ERROR, 'Error updating comment!')
@@ -104,7 +108,11 @@ def comment_delete(request, slug, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(
+                request, 
+                messages.SUCCESS, 
+                'Comment submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!'
+                )
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
@@ -162,7 +170,11 @@ def post_edit(request, slug, post_id):
             post.slug = slugify(post.title)
             post.status = "0"
             post.save()
-            messages.add_message(request, messages.SUCCESS, 'Post updated!')
+            messages.add_message(
+                request, 
+                messages.SUCCESS, 
+                'Post submitted as DRAFT for Approval! It will be available for public view once the Administrator approves it!'
+                )
             return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
         else:
             messages.add_message(request, messages.ERROR, 'Error updating post!')
