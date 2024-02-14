@@ -201,7 +201,6 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
 
 /* profile.html for comments longer than the required display area */
 .profile-excerpt {
-    /* display: block; */
     width: 200px;
     white-space: nowrap;
     overflow: hidden;
@@ -235,5 +234,4 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
 .masthead-btn {
     color: #445261;
     background-color: white;
-    /* position: relative; */
 }
