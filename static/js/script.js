@@ -1,7 +1,3 @@
-// const editButtons = document.getElementsByClassName("btn-edit");
-// const commentText = document.getElementById("id_body");
-// const commentForm = document.getElementById("commentForm");
-// const submitButton = document.getElementById("submitButton");
 const deletePostModal = new bootstrap.Modal(document.getElementById("deletePostModal"));
 const deletePostButtons = document.getElementsByClassName("btn-delete-post");
 const deletePostConfirm = document.getElementById("deletePostConfirm");
