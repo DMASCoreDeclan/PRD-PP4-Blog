@@ -1,7 +1,7 @@
-const deletePostModal = new bootstrap.Modal(document.getElementById("deletePostModal"));
+const deletePostModal = bootstrap.Modal(document.getElementById("deletePostModal"));
 const deletePostButtons = document.getElementsByClassName("btn-delete-post");
 const deletePostConfirm = document.getElementById("deletePostConfirm");
-const deleteCommentModal = new bootstrap.Modal(document.getElementById("deleteCommentModal"));
+const deleteCommentModal = bootstrap.Modal(document.getElementById("deleteCommentModal"));
 const deleteCommentButtons = document.getElementsByClassName("btn-delete-comment");
 const deleteCommentConfirm = document.getElementById("deleteCommentConfirm");
 

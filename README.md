@@ -201,6 +201,22 @@ There are three apps within the project:
 
 </details>
 
+</details>
+
+
+<summary>I logged into every URL and every Form as an Anonymous User, a User and as Admin</summary>
+
+
+## Testing
+- All testing is manual.
+
+- I did the [following](  https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) tests on Chrome.
+I logged into every URL and every Form as an Anonymous User, a User and as Admin
+
+
+</details>
+
+The bugs were either fixed using an update of CSS, however, there were/are some [bugs](https://github.com/users/DMASCoreDeclan/projects/20/views/13) that have been recorded in git hub
 
 ## Roadmap - Stories
 
