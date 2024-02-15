@@ -38,12 +38,15 @@
 - Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
 - Users can also [submit a Post](https://blogstar-fa4e79f10910.herokuapp.com/create/) of their own, making it more community driven
 - To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  
-- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
+- I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaningful reports or summaries
 - From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to [djangos Admin feature](https://blogstar-fa4e79f10910.herokuapp.com/admin/).  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
+
+[I'll be using the site to create posts about some of my favourite authors and some of the books that they've published](https://blogstar-fa4e79f10910.herokuapp.com/about/)
+
 
 ## Personas
 
-1. Anonymous - Not Registerd or Registered but not Logged In
+1. Anonymous - Not Registered or Registered but not Logged In
 1. User - Registered AND Logged In
 1. django superuser - Registered AND Logged In as Admin with password ![alt text](.ReadMe_Docs/images/image-4.png)
 
@@ -87,7 +90,7 @@
     - The django create superuser is: Admin and the password is: ![Pa55w0rd](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/blob/main/.ReadMe_Docs/images/image-4.png)
         1. For some of the features of the site you ***MUST*** login as Admin
             - I added an ADMIN link that brings you to /admin.
-            - I wanted to add an APPROVE button to unapproved posts so that when logged in as Admin, posts could be approved on the frontend - a feature for the future!
+            - I wanted to add an APPROVE button to unapproved posts so that when logged in as Admin, posts could be approved on the frontend - a [feature](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/39) for the future!
 
 </details>
 
@@ -124,7 +127,7 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 ## Wireframes
 [Designed with Balsamiq Wireframes for Desktop](https://balsamiq.com/wireframes/desktop/)
 
-Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
+Any vistor who has the URL can see the home screen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
 
   <details>
   <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/home-page.png">
@@ -235,7 +238,7 @@ There are three apps within the project:
 - I logged into every URL and every Form as an Anonymous User, a User and as Admin.  After each action, I checked the console, and where appropriate, I checked the databae in /admin, to ensure the backend did as expected.  
 - I performed [Test Case and Test Scenario testing](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) tests on Chrome.
 - All bugs were [recorded](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) but divided into two types: 
-	1. **Easy** to fix, misspellings or obvious ommissions, in .html/.py/.js/.css.  These were recorded, fixed on the fly and captured in a dedicated commit
+	1. **Easy** to fix, misspellings or obvious omissions, in .html/.py/.js/.css.  These were recorded, fixed on the fly and captured in a dedicated commit
 	1. **Substantial** and may or may not be fixed.  These have a [Bug Issue in Github](https://github.com/users/DMASCoreDeclan/projects/20/views/13)
 
 </details>
@@ -345,7 +348,7 @@ This section outlines the various technologies used throughout the project and t
 
 <details>
 
-- [Django](https://www.djangoproject.com/) used as a full-stack framwork for developing the app.
+- [Django](https://www.djangoproject.com/) used as a full-stack framework for developing the app.
 - [JavaScript](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/) used for client-side interaction and validation.
 - [HTML](https://html.spec.whatwg.org/)/[CSS](https://www.w3.org/Style/CSS/Overview.en.html) + [Django Template Language](https://docs.djangoproject.com/en/4.2/ref/templates/language/) used for building out site pages.
 
@@ -425,4 +428,5 @@ This section outlines the various technologies used throughout the project and t
 
 # Credits
 - Antonio, my mentor 
-- [Corey Schafer](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6)
+- Code Institute for the foundation of: "I think therefor I blog!"
+- [Corey Schafer](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6) who demonstrated the use of signals and updating a Profile Page
