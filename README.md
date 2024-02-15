@@ -1,3 +1,5 @@
+# Project [blog|star](https://blogstar-fa4e79f10910.herokuapp.com/) 
+
 ![alt text](.ReadMe_Docs/images/am-i-responsive.png)
 
 # Project Background
@@ -9,15 +11,16 @@
 - This Django web development project is an extension of Code Institute, "I Think Therefore I Blog". 
 - Unfortunately, for 95% of my development time, I confused, create a custom *model* with creating a custom *app*.  So at the 12<sup>th</sup> hour, I had to create a custom model: **Category**.  I integrated this into the masthead of each post and made it a mandatory dropdown selection for all posts.
 
-- To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  
+
 - The original concept was to create Posts on the backend and allow registered users to create and delete comments on the frontend.  These comments were subject to approval of the site owner.  
 - I have given the User the ability to have a Profile Page so they can add/change their Profile Picture, their Username, Email, First Name and Last Name.
 	- This required me to add signals.py in the users app.  users.models.profile is a ManyToMany table and connects the django model User to the Cloudinary model CloudinaryField.  When the user adds a picture to their profile, the signal makes an entry in Profile.  Otherwise, when a user changed their profile picture, the Admin would have to connect their picture to their profile manually.
 
 - Their Profile Page consolidates the Posts that they liked and gives them ability to Edit/Delete the comments that they've submitted and UNLIKE Liked Posts
-- Users can also submit a Post of their own, making it more community driven
+- Users can also [submit a Post](https://blogstar-fa4e79f10910.herokuapp.com/create/) of their own, making it more community driven
+- To demonstrate frontend CRUD I extended the Comment Edit/Delete to User Posts.  
 - I have also included a Category feature which allows Users to categorise their Posts.  This feature needs further development in order to produce more meaniingful reports or summaries
-- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to djangos Admin feature.  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
+- From an Admin perspective, when the Admin is logged in, they have the ability to use a URL to login to [djangos Admin feature](https://blogstar-fa4e79f10910.herokuapp.com/admin/).  The Admin retains full control over User Comments and User Posts as they need to be Approved by Admin before User contributions are published on the site for visitors and other Users.  Likes are not controlled by the Admin
 
 ## Personas:
 1. Anonymous - Not Registerd or Registered but not Logged In
@@ -26,15 +29,16 @@
 
 ## Original Persona Capabilities
 1. Anonymous people can: 
-    - Read the site 
-    - Register
-    - Collaborate
+    - [Read the site](https://blogstar-fa4e79f10910.herokuapp.com/) 
+    - [Register](https://blogstar-fa4e79f10910.herokuapp.com/register/)
+    - [Collaborate](https://blogstar-fa4e79f10910.herokuapp.com/about/)
 
 1. User:
 - In addition to the Anonymous capabilities they can:
-    1. Login
-    1. Logout
+    1. [Login](https://blogstar-fa4e79f10910.herokuapp.com/accounts/login/)
+    1. [Logout](https://blogstar-fa4e79f10910.herokuapp.com/accounts/logout/)
     1. Like/Unlike a Post
+    ![Like](/workspace/PRD-PP4-Blog/.ReadMe_Docs/images/like.png)
     1. Edit/Delete their own Comment(s)
 
 3. django superuser (Admin):
@@ -46,7 +50,7 @@
     1. no changes
 
 1. User:
-- I added a CREATE page and a PROFILE page.
+- I added a [CREATE](https://blogstar-fa4e79f10910.herokuapp.com/create/) page and a [PROFILE](https://blogstar-fa4e79f10910.herokuapp.com/register/profile/) page.
     - In the CREATE page, Users can:
     - Create a post with a Title*, Category*, Image, Content* and Excerpt 
     - Upon submittal of a post they get a "Post created!" success message and are redirected to the post_detail of the post they created.
@@ -60,7 +64,7 @@
         1. Update/Delete/View a list of Comments that they have submitted for approval
         1. Update/Delete/View a list of Comments that have been approved        
 3. django superuser (Admin):
-    - The django create superuser is: Admin and the password is: ![alt text](.ReadMe_Docs/images/image-4.png)
+    - The django create superuser is: Admin and the password is: ![Pa55w0rd](.ReadMe_Docs/images/image-4.png)
         1. For some of the features of the site you ***MUST*** login as Admin
             - I added an ADMIN link that brings you to /admin.
             - I wanted to add an APPROVE button to unapproved posts so that when logged in as Admin, posts could be approved on the frontend - a feature for the future!
@@ -201,8 +205,6 @@ There are three apps within the project:
 
 </details>
 
-<!-- </details> -->
-
 ## Testing
 
 <details>
@@ -256,7 +258,15 @@ No errors were returned when passing through the official W3C CSS Validator [W3C
 <details>
 
 <summary>W3C Markup Validator</summary>
-No errors were returned when passing through the official W3C Markup Validator [W3C Validator Results]
+[Home](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2F#l303c12)
+[Create](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2Fcreate%2F#l303c12)
+[Profile](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2Fregister%2Fprofile%2F#l121c65)
+[About](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2Fabout%2F#l121c65)
+[Register](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2Fregister%2F#l121c65)
+[Login](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2Faccounts%2Flogin%2F#l121c65)
+[Logout]()
+
+
 
 </details>
 
