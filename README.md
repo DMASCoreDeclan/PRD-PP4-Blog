@@ -430,3 +430,4 @@ This section outlines the various technologies used throughout the project and t
 - Antonio, my mentor 
 - Code Institute for the foundation of: "I think therefor I blog!"
 - [Corey Schafer](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6) who demonstrated the use of signals and updating a Profile Page
+- [ChatGPT](https://chat.openai.com/) for some of the content
