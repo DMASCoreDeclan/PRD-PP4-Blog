@@ -1,4 +1,4 @@
-# Rename this to env.py and place in the root directory.abs
+# Rename this to env.py and place in the root directory.
 # Ensure you add it to .gitignore
 
 import os
