@@ -122,9 +122,7 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(
                 request,
                 messages.SUCCESS,
-                "'Comment submitted as DRAFT for Approval! It will be "
-                "available for public view once the "
-                "Administrator approves it!'"
+                'Comment deleted!'
                 )
     else:
         messages.add_message(
