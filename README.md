@@ -1,4 +1,4 @@
-
+![alt text](.ReadMe_Docs/images/am-i-responsive.png)
 
 # Project Background
 
@@ -103,39 +103,39 @@ The [Project Elements:](https://github.com/users/DMASCoreDeclan/projects/20)
 Any vistor who has the URL can see the home sreen [blog|star Home](https://blogstar-fa4e79f10910.herokuapp.com/)
 
   <details>
-  <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home Page.png">
+  <summary>Home Screen (Anonymous User)</summary>  <img src=".ReadMe_Docs/images/wireframes/home-page.png">
   </details>
 
   <details>
-  <summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/REGISTER.png">
+  <summary>Register</summary>  <img src=".ReadMe_Docs/images/wireframes/register.png">
   </details>
 
   <details>
-  <summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGIN.png">
+  <summary>Login</summary>  <img src=".ReadMe_Docs/images/wireframes/login.png">
   </details>
 
   <details>
-  <summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in Admin.png">
+  <summary> Home Screen (Logged in as Admin)</summary>  <img src=".ReadMe_Docs/images/wireframes/home-of-logged-in-admin.png">
   </details>
 
   <details>
-  <summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/Home of Logged in User.png">
+  <summary> Home Screen (Logged in User)</summary>  <img src=".ReadMe_Docs/images/wireframes/home-of-logged-in-user.png">
   </details>
 
   <details>
-  <summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/PROFILE.png">
+  <summary>Profile</summary>  <img src=".ReadMe_Docs/images/wireframes/profile.png">
   </details>
 
   <details>
-  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/CREATE.png">
+  <summary>Create Post</summary>  <img src=".ReadMe_Docs/images/wireframes/create.png">
   </details>
 
   <details>
-  <summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/Edit Comment.png">
+  <summary>Edit Comment</summary>  <img src=".ReadMe_Docs/images/wireframes/edit-comment.png">
   </details>
 
   <details>
-  <summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/LOGOUT.png">
+  <summary>Logout</summary>  <img src=".ReadMe_Docs/images/wireframes/logout.png">
   </details>
 
 <br>
@@ -147,7 +147,7 @@ Any vistor who has the URL can see the home sreen [blog|star Home](https://blogs
 [Designed with Lucidchart](https://www.lucidchart.com/pages/)
 
 <details>
-<summary>ERD</summary>  <img src=".ReadMe_Docs/images/PP4 ERD.png">
+<summary>ERD</summary>  <img src=".ReadMe_Docs/images/pp4-erd.png">
 </details>
 
 <details>
@@ -201,22 +201,65 @@ There are three apps within the project:
 
 </details>
 
-</details>
-
-
-<summary>I logged into every URL and every Form as an Anonymous User, a User and as Admin</summary>
-
+<!-- </details> -->
 
 ## Testing
+
+<details>
+
+<summary>Test Case and Test Scenario</summary>
+
 - All testing is manual.
-
-- I did the [following](  https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) tests on Chrome.
-I logged into every URL and every Form as an Anonymous User, a User and as Admin
-
+- I logged into every URL and every Form as an Anonymous User, a User and as Admin.  After each action, I checked the console, and where appropriate, I checked the databae in /admin, to ensure the backend did as expected.  
+- I performed [Test Case and Test Scenario testing](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) tests on Chrome.
+- All bugs were [recorded](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/BUG_REPORT.md) but divided into two types: 
+	1. **Easy** to fix, misspellings or obvious ommissions, in .html/.py/.js/.css.  These were recorded, fixed on the fly and captured in a dedicated commit
+	1. **Substantial** and may or may not be fixed.  These have a [Bug Issue in Github](https://github.com/users/DMASCoreDeclan/projects/20/views/13)
 
 </details>
 
-The bugs were either fixed using an update of CSS, however, there were/are some [bugs](https://github.com/users/DMASCoreDeclan/projects/20/views/13) that have been recorded in git hub
+
+<details>
+
+<summary>Responsiveness</summary>
+- The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 8, iPhone 11, iPad, and Androids to ensure responsiveness on various screen sizes. The website performed as intended. The responsive design was also checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes.
+
+- [Am I responsive](https://ui.dev/amiresponsive?url=https://8000-dmascoredecl-prdpp4blog-8pcr8te1zt6.ws-eu108.gitpod.io/)
+- [Responsinator](http://www.responsinator.com/?url=https%3A%2F%2F8000-dmascoredecl-prdpp4blog-8pcr8te1zt6.ws-eu108.gitpod.io%2F)
+
+</details>
+
+
+<details>
+
+<summary>Code CI Python Linter</summary>
+
+
+- [users.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/blob/main/.ReadMe_Docs/images/python-linter-for-user%20views.png)
+- [blog.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-blog-views.png)
+- [about.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-settings.png) - I'm not fixing these, these are django inserted
+- [users.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-about-views.png)
+
+</details>
+
+
+<details>
+
+<summary>W3C CSS Validator Result</summary>
+
+No errors were returned when passing through the official W3C CSS Validator [W3C CSS Validator Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fblogstar-fa4e79f10910.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+![alt text](image.png)
+</details>
+
+
+<details>
+
+<summary>W3C Markup Validator</summary>
+No errors were returned when passing through the official W3C Markup Validator [W3C Validator Results]
+
+</details>
+
 
 ## Roadmap - Stories
 
@@ -281,6 +324,8 @@ This section outlines the various technologies used throughout the project and t
 - [Google Fonts](https://fonts.google.com/) - High-quality google fonts to use on your web site.
 - [Font Awesome](https://fontawesome.com/) - Font Awesome is the Internet's icon library and toolkit, used by millions of designers, developers, and content creators
 - [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Get started with Bootstrap, the world’s most popular framework for building responsive, mobile-first sites
+- [Tables Generator](https://www.tablesgenerator.com/markdown_tables) - [About](https://www.tablesgenerator.com/about)
+
 
 </details>
 
@@ -733,7 +778,7 @@ const validateForm = function (e) {
 ![Flights Lighthouse test](/readme/Lighthouse-flights.png)
 
 </details>
-<details>
+<details>create.png
 <summary>Passengers</summary>
 
 ![Passengers Lighthouse test](/readme/Lighthouse-passengers.png)
@@ -748,13 +793,13 @@ const validateForm = function (e) {
 <details>
 <summary>Bookings Overview</summary>
 
-![Bookings Lighthouse test](/readme/Lighthouse-bookings.png)
+![Bookings Lighthouse test](/readme/Lighthouse-bookings)
 
 </details>
 <details>
 <summary>Booking Detail</summary>
 
-![Booking Detail Lighthouse test](/readme/Lighthouse-booking-detail.png)
+![Booking Detail Lighthouse test](/readme/Lighthouse-booking-detail)
 
 </details>
 </details>
@@ -770,7 +815,6 @@ const validateForm = function (e) {
 <details>
 <summary>Responsiveness test results</summary>
 
-![Responsiveness testing with ResponsivelyApp](/readme/responsive-testing.png)
 
 </details>
 
@@ -831,7 +875,7 @@ const validateForm = function (e) {
 1. Connect your GitHub repository to your Heroku app.
 1. In the Settings tab, ensure that the Python Buildpack is added.
 1. Set environment variables in the Config Vars section of the Settings tab.  
-![Heroku Config Vars](.ReadMe_Docs/images/HerokuConfigVars.png)
+![Heroku Config Vars](.ReadMe_Docs/images/heroku-config-vars.png)
 1. In the Deploy tab, enable automatic deploys from your GitHub repository.
 1. Click the "Deploy Branch" button to deploy the app.
 1. Once the app has been deployed, click the "Open App" button to view the app.
