@@ -237,10 +237,10 @@ div.row.mt-2.mb-2 a.btn.btn-edit {
 }
 
 /* image resize for index.html */
-.card-img-top {
+/* .card-img-top {
     height: 250px;
     overflow: hidden;
-}
+} */
 
 /* Cancel button on edit_post.html */
 .btn-cancel {

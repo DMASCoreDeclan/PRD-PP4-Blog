@@ -235,7 +235,7 @@ There are three apps within the project:
 <summary>Code CI Python Linter</summary>
 
 
-- [users.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/blob/main/.ReadMe_Docs/images/python-linter-for-user%20views.png)
+- [users.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/blob/main/.ReadMe_Docs/images/python-linter-for-user-views.png)
 - [blog.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-blog-views.png)
 - [about.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-settings.png) - I'm not fixing these, these are django inserted
 - [users.views.py ](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/tree/main/.ReadMe_Docs/images/python-linter-for-about-views.png)
@@ -291,6 +291,13 @@ No errors were returned when passing through the official W3C Markup Validator [
 
 </details>
 
+<details>
+<summary>Testing Bug: UX Compromise for post display and post detail</summary>
+
+[Testing Bug: UX Compromise for post display and post detail](https://github.com/DMASCoreDeclan/PRD-PP4-Blog/issues/47)
+
+</details>
+
 # Technologies Used
 
 This section outlines the various technologies used throughout the project and the purpose each serves.
@@ -333,7 +340,7 @@ This section outlines the various technologies used throughout the project and t
 
 <details>
 
-- [PostgreSQL](https://www.postgresql.org/docs/12/) Current version provided by [Code Institute PostgresSQL](https://dbs.ci-dbs.net//)   (Originally on [ElephantSQL](https://www.elephantsql.com/) until v12 became unavailable.)  
+- [PostgreSQL](https://www.postgresql.org/docs/12/) Current version provided by [Code Institute PostgresSQL](https://dbs.ci-dbs.net/)   (Originally on [ElephantSQL](https://www.elephantsql.com/) until v12 became unavailable.)  
 - [Heroku](https://www.heroku.com/) - used for hosting the application.
 - [Cloudinary](https://cloudinary.com/) - used for storing static files and media files.
 
